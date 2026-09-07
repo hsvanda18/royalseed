@@ -1,0 +1,401 @@
+@import "tailwindcss";
+
+/* ── Faces ────────────────────────────────────────────────────────────────
+   Self-hosted variable subsets. No third-party request: a page read on an
+   Angolan mobile connection should not wait on fonts.gstatic.com.          */
+
+@font-face {
+  font-family: "Petrona";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/fonts/petrona-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Petrona";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/fonts/petrona-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+    U+02DD-02FF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0,
+    U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Petrona";
+  font-style: italic;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/petrona-italic-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/fonts/archivo-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/fonts/archivo-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+    U+02DD-02FF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0,
+    U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ── The plan's inks ──────────────────────────────────────────────────────
+   Survey ink green dominates. Gold is never decoration: it marks a control
+   or a measured value, and nothing else on the sheet.                      */
+
+@theme {
+  --color-paper: #f6f2e8;
+  --color-paper-deep: #ece5d4;
+  --color-paper-edge: #e2d9c3;
+
+  --color-ink: #1a3f1c;
+  --color-ink-soft: #40603f;
+  --color-ink-faint: #556d52;
+
+  --color-plate: #12300f;
+  --color-plate-soft: #1c4419;
+
+  --color-gold: #c9a227;
+  --color-gold-bright: #e0b53d;
+  --color-gold-ink: #6f5510;
+
+  --color-terra: #a8542f;
+
+  --font-display: "Petrona", "Iowan Old Style", "Palatino Linotype", Palatino,
+    Georgia, "Times New Roman", serif;
+  --font-sans: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@layer base {
+  :root {
+    --rule: color-mix(in srgb, var(--color-ink) 20%, transparent);
+    --rule-strong: color-mix(in srgb, var(--color-ink) 42%, transparent);
+    --sheet-max: 88rem;
+    color-scheme: light;
+  }
+
+  * {
+    border-color: var(--rule);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* the fixed sheet header must not eat an anchored heading */
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  /* The sheet's own tooth. Two crossed hairline fields at different
+     periods, so the paper never repeats visibly. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image:
+      repeating-linear-gradient(
+        to right,
+        color-mix(in srgb, var(--color-ink) 4.5%, transparent) 0 1px,
+        transparent 1px 100%
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--color-ink) 4.5%, transparent) 0 1px,
+        transparent 1px 100%
+      );
+    background-size:
+      7.5rem 7.5rem,
+      7.5rem 7.5rem;
+  }
+
+  /* Browser surfaces belong to the plan too. */
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-gold) 45%, transparent);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold-ink);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  .on-plate :focus-visible {
+    outline-color: var(--color-gold-bright);
+  }
+
+  a,
+  button,
+  input,
+  select {
+    color: inherit;
+  }
+
+  @supports (scrollbar-color: auto) {
+    html {
+      scrollbar-color: color-mix(in srgb, var(--color-ink) 38%, transparent)
+        var(--color-paper-deep);
+      scrollbar-width: thin;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-paper-deep);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--color-ink) 38%, transparent);
+    border: 3px solid var(--color-paper-deep);
+    border-radius: 0;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-ink);
+  }
+}
+
+@layer components {
+  /* The drafting hand: single-stroke uppercase annotation. Every label on a
+     survey plan is lettered this way — it is the drawing's voice, not a
+     technical costume. */
+  .annot {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.6875rem;
+    line-height: 1.35;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .annot-sm {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.625rem;
+    line-height: 1.4;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Figures are the argument: specimen scale, nothing between them and the
+     lettering that explains them. */
+  .figure-xl {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 0.82;
+    letter-spacing: -0.035em;
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+
+  .prose-sheet {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    max-width: 34rem;
+    color: var(--color-ink-soft);
+  }
+
+  .prose-sheet strong {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+
+  /* Hairline separators drawn as the plan draws them. */
+  .rule-h {
+    height: 1px;
+    background: var(--rule-strong);
+  }
+
+  /* The phase axis: a traverse line with a surveyor's mark on it. Gold,
+     because on this sheet gold means a control or a measured value. */
+  .axis-input {
+    appearance: none;
+    background: transparent;
+    height: 2.25rem;
+    cursor: ew-resize;
+    touch-action: pan-y;
+  }
+
+  .axis-input::-webkit-slider-runnable-track {
+    height: 2.25rem;
+    background:
+      linear-gradient(var(--color-gold-ink), var(--color-gold-ink)) no-repeat
+        left 50% / var(--pct, 0%) 2px,
+      linear-gradient(var(--rule-strong), var(--rule-strong)) no-repeat left 50% /
+        100% 2px,
+      repeating-linear-gradient(
+          to right,
+          var(--rule-strong) 0 1px,
+          transparent 1px 33.3333%
+        )
+        no-repeat left calc(50% - 7px) / 100% 8px;
+  }
+
+  .axis-input::-moz-range-track {
+    height: 2.25rem;
+    background:
+      linear-gradient(var(--rule-strong), var(--rule-strong)) no-repeat left 50% /
+        100% 2px,
+      repeating-linear-gradient(
+          to right,
+          var(--rule-strong) 0 1px,
+          transparent 1px 33.3333%
+        )
+        no-repeat left calc(50% - 7px) / 100% 8px;
+  }
+
+  .axis-input::-moz-range-progress {
+    height: 2px;
+    background: var(--color-gold-ink);
+  }
+
+  .axis-input::-webkit-slider-thumb {
+    appearance: none;
+    width: 1.125rem;
+    height: 1.125rem;
+    margin-top: calc((2.25rem - 1.125rem) / 2);
+    background: var(--color-gold);
+    border: 2px solid var(--color-gold-ink);
+    border-radius: 0;
+    transform: rotate(45deg);
+    transition:
+      box-shadow 300ms ease-out,
+      background-color 300ms ease-out;
+  }
+
+  .axis-input::-moz-range-thumb {
+    width: 1.125rem;
+    height: 1.125rem;
+    background: var(--color-gold);
+    border: 2px solid var(--color-gold-ink);
+    border-radius: 0;
+    transform: rotate(45deg);
+    transition:
+      box-shadow 300ms ease-out,
+      background-color 300ms ease-out;
+  }
+
+  .axis-input:hover::-webkit-slider-thumb,
+  .axis-input:focus-visible::-webkit-slider-thumb {
+    box-shadow: 0 2px 10px -2px color-mix(in srgb, var(--color-gold-ink) 70%, transparent);
+    background: var(--color-gold-bright);
+  }
+
+  .axis-input:hover::-moz-range-thumb,
+  .axis-input:focus-visible::-moz-range-thumb {
+    box-shadow: 0 2px 10px -2px color-mix(in srgb, var(--color-gold-ink) 70%, transparent);
+    background: var(--color-gold-bright);
+  }
+
+  .axis-input:focus-visible {
+    outline-offset: 1px;
+  }
+}
+
+/* ── The drafting hand, in motion ─────────────────────────────────────────
+   One grammar for the whole sheet: lines ink themselves in, then their
+   annotation arrives along its own leader. Never a second entrance.       */
+
+@layer utilities {
+  .draw {
+    stroke-dasharray: var(--len, 2000);
+    stroke-dashoffset: var(--len, 2000);
+    transition: stroke-dashoffset 1500ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--d, 0ms);
+  }
+
+  [data-inked="true"] .draw {
+    stroke-dashoffset: 0;
+  }
+
+  .ink-in {
+    opacity: 0;
+    transform: translateY(0.75rem);
+    transition:
+      opacity 900ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 900ms cubic-bezier(0.16, 1, 0.3, 1),
+      filter 900ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--d, 0ms);
+    filter: blur(3px);
+  }
+
+  [data-inked="true"] .ink-in {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+
+  .wash-in {
+    opacity: 0;
+    transition: opacity 1100ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--d, 0ms);
+  }
+
+  [data-inked="true"] .wash-in {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .draw,
+    .ink-in,
+    .wash-in {
+      transition-duration: 1ms !important;
+      transition-delay: 0ms !important;
+      stroke-dashoffset: 0 !important;
+      opacity: 1 !important;
+      filter: none !important;
+    }
+
+    /* Only .ink-in ever sets a transform. Resetting it on .wash-in too
+       would override the `transform` attribute on SVG groups — which is
+       positional, not decorative — and dump the north arrow and scale bar
+       at the drawing's origin. */
+    .ink-in {
+      transform: none !important;
+    }
+  }
+
+  /* At phone widths the drawing's leader labels would render at four or
+     five pixels. The legend list below the plan carries them instead. */
+  @media (max-width: 1023px) {
+    .plan-leader {
+      display: none;
+    }
+  }
+}
