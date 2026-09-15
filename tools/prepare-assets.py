@@ -4,9 +4,9 @@ Prepares the site's raster assets from files the client supplied.
   1. Photographs: the originals sent by WhatsApp (Sept 2026), resized to at
      most 1200px on the long side (1600px for the full-width overview),
      never upscaled, and re-encoded to WebP.
-     Only real photographs are published. The client's folder also holds
-     three generated illustrations (IMG-20260913-WA0031..33); they are not
-     used.
+     The client's folder also holds three generated illustrations
+     (IMG-20260913-WA0031..33). At the client's request they illustrate the
+     workforce section, where the page labels them as illustrations.
   2. Gallery: the client's "Royal Def" folder, already split into Angola/
      and Kenya/, gets a thumbnail and a full-size file per photograph.
   3. Logotype: the supplied PNGs carry an opaque #F7F7F7 field. It is
@@ -41,6 +41,10 @@ PHOTO_SOURCES = {
     "IMG-20260910-WA0003.jpg": "pomar-missao",
     "IMG-20260910-WA0004.jpg": "viveiro-mudas",
     "IMG-20260910-WA0005.jpg": "pomar-linha",
+    # Generated illustrations, labelled as such on the page.
+    "IMG-20260913-WA0031.jpg": "ilustracao-plantacao",
+    "IMG-20260913-WA0032.jpg": "ilustracao-colheita",
+    "IMG-20260913-WA0033.jpg": "ilustracao-pulverizacao",
 }
 
 

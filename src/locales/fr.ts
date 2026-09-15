@@ -155,6 +155,12 @@ export const fr: Copy = {
       "350 personnes entretiennent le bloc toute l’année. À la récolte, 360 autres les rejoignent, presque toutes issues des communautés de Quibala. Une plantation de cette taille est avant tout un employeur — c’est pourquoi l’intégrité figure dans nos valeurs, et pas seulement dans notre présentation.",
     keyPermanent: "Employé permanent",
     keySeasonal: "Employé saisonnier",
+    illustrations: [
+      "Illustration : des ouvriers en tenue verte plantent des plants d’avocatier le long de lignes de goutte-à-goutte.",
+      "Illustration : un ouvrier en tenue verte examine des avocats sur l’arbre.",
+      "Illustration : un ouvrier en tenue verte pulvérise des avocatiers avec un pulvérisateur à dos.",
+    ],
+    illustrationNote: "Images d’illustration",
   },
 
   contact: {

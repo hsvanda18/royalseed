@@ -155,6 +155,12 @@ export const pt: Copy = {
       "350 pessoas mantêm o bloco durante todo o ano. Na colheita juntam-se-lhes mais 360, quase todas das comunidades do Quibala. Uma plantação desta dimensão é, antes de tudo, um empregador — e é por isso que a integridade está na nossa lista de valores e não apenas na nossa apresentação.",
     keyPermanent: "Colaborador permanente",
     keySeasonal: "Colaborador sazonal",
+    illustrations: [
+      "Ilustração: trabalhadores de farda verde plantam mudas de abacateiro junto a linhas de rega gota-a-gota.",
+      "Ilustração: trabalhador de farda verde verifica frutos de abacate na árvore.",
+      "Ilustração: trabalhador de farda verde pulveriza abacateiros com um pulverizador de dorso.",
+    ],
+    illustrationNote: "Imagens ilustrativas",
   },
 
   contact: {

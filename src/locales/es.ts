@@ -155,6 +155,12 @@ export const es: Copy = {
       "350 personas mantienen el bloque durante todo el año. En la cosecha se les unen otras 360, casi todas de las comunidades de Quibala. Una plantación de este tamaño es, ante todo, un empleador — y por eso la integridad está en nuestra lista de valores y no solo en nuestra presentación.",
     keyPermanent: "Trabajador fijo",
     keySeasonal: "Trabajador temporero",
+    illustrations: [
+      "Ilustración: trabajadores con uniforme verde plantan plantones de aguacate junto a líneas de riego por goteo.",
+      "Ilustración: un trabajador con uniforme verde revisa aguacates en el árbol.",
+      "Ilustración: un trabajador con uniforme verde fumiga aguacates con una mochila pulverizadora.",
+    ],
+    illustrationNote: "Imágenes ilustrativas",
   },
 
   contact: {

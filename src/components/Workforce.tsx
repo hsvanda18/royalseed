@@ -1,6 +1,9 @@
 import { useMemo, useRef } from "react";
-import { FACTS, type Copy } from "../content";
+import { FACTS, PHOTOS, type Copy } from "../content";
 import { useInk, useTallyColumns } from "../lib/hooks";
+
+/** Sum of width ÷ height across the illustration row. */
+const ROW_RATIO = PHOTOS.workforce.reduce((sum, p) => sum + p.width / p.height, 0);
 
 const CELL_W = 13;
 const CELL_H = 17;
@@ -126,6 +129,35 @@ export function Workforce({ copy }: { copy: Copy }) {
             </p>
           </div>
         </div>
+
+        {/* Generated illustrations, shown whole at one shared height and
+            labelled as illustrations: they are not photographs of the
+            company's own people or harvest. */}
+        <figure className="m-0 mt-8">
+          <div
+            className="grid gap-3 lg:flex lg:justify-center"
+            style={
+              {
+                "--row-h": `calc((min(var(--sheet-max), 100vw - 5rem) - 1.5rem) / ${ROW_RATIO.toFixed(4)})`,
+              } as React.CSSProperties
+            }
+          >
+            {PHOTOS.workforce.map((photo, i) => (
+              <img
+                key={photo.src}
+                src={photo.src}
+                width={photo.width}
+                height={photo.height}
+                alt={w.illustrations[i]}
+                loading="lazy"
+                decoding="async"
+                className="ink-in block h-auto w-full border border-[var(--rule-strong)] bg-paper-deep lg:w-[calc(var(--row-h)*var(--ratio))] lg:shrink-0"
+                style={{ "--ratio": photo.width / photo.height, "--d": `${120 + i * 90}ms` } as React.CSSProperties}
+              />
+            ))}
+          </div>
+          <figcaption className="annot-sm mt-2.5 text-ink-faint">{w.illustrationNote}</figcaption>
+        </figure>
       </div>
     </section>
   );

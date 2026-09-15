@@ -65,6 +65,12 @@ export const PHOTOS = {
     { src: "/photos/viveiro-mudas.webp", width: 900, height: 1200 },
     { src: "/photos/pomar-linha.webp", width: 1200, height: 900 },
   ],
+  /** Generated illustrations supplied by the client, shown labelled as such. */
+  workforce: [
+    { src: "/photos/ilustracao-plantacao.webp", width: 1200, height: 555 },
+    { src: "/photos/ilustracao-colheita.webp", width: 1200, height: 482 },
+    { src: "/photos/ilustracao-pulverizacao.webp", width: 1200, height: 480 },
+  ],
 } as const;
 
 /* ── Copy ───────────────────────────────────────────────────────────────── */
@@ -154,6 +160,8 @@ export interface Copy {
     body: string;
     keyPermanent: string;
     keySeasonal: string;
+    illustrations: [string, string, string];
+    illustrationNote: string;
   };
 
   contact: {

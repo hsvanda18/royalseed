@@ -155,6 +155,12 @@ export const en: Copy = {
       "350 people hold the block through the year. At harvest another 360 join them, nearly all from communities around Quibala. A plantation this size is, before anything else, an employer — which is why integrity sits in our list of values and not only in our introduction.",
     keyPermanent: "Permanent employee",
     keySeasonal: "Seasonal employee",
+    illustrations: [
+      "Illustration: workers in green uniforms plant avocado seedlings beside drip irrigation lines.",
+      "Illustration: a worker in a green uniform checks avocados on the tree.",
+      "Illustration: a worker in a green uniform sprays avocado trees with a backpack sprayer.",
+    ],
+    illustrationNote: "Illustrative images",
   },
 
   contact: {
