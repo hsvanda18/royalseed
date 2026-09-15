@@ -82,6 +82,24 @@
   --font-sans: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/* ── Scripts outside the Latin subsets ────────────────────────────────────
+   Petrona and Archivo ship Latin only; their unicode-ranges let Arabic and
+   Han glyphs fall through to the platform's own faces, while digits, emails
+   and the company name stay in the sheet's lettering.                       */
+
+:root:lang(ar) {
+  --font-display: "Petrona", "Noto Naskh Arabic", "Segoe UI", "Geeza Pro",
+    Tahoma, serif;
+  --font-sans: "Archivo", "Noto Sans Arabic", "Segoe UI", "Geeza Pro", Tahoma,
+    sans-serif;
+}
+
+:root:lang(zh) {
+  --font-display: "Petrona", "Songti SC", "Noto Serif SC", "SimSun", serif;
+  --font-sans: "Archivo", "PingFang SC", "Microsoft YaHei", "Noto Sans SC",
+    sans-serif;
+}
+
 @layer base {
   :root {
     --rule: color-mix(in srgb, var(--color-ink) 20%, transparent);
@@ -97,7 +115,7 @@
   html {
     scroll-behavior: smooth;
     /* the fixed sheet header must not eat an anchored heading */
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: 6.5rem;
     -webkit-text-size-adjust: 100%;
   }
 
@@ -231,6 +249,30 @@
     color: var(--color-ink-soft);
   }
 
+  /* Tracking breaks Arabic joining and crowds Han characters; the tight
+     display leading clips both scripts' taller forms. */
+  :lang(ar) .annot,
+  :lang(ar) .annot-sm {
+    letter-spacing: 0;
+    font-size: 0.8125rem;
+  }
+
+  :lang(zh) .annot,
+  :lang(zh) .annot-sm {
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+  }
+
+  :lang(ar) .figure-xl,
+  :lang(zh) .figure-xl {
+    letter-spacing: 0;
+    line-height: 1.15;
+  }
+
+  :lang(ar) .prose-sheet {
+    line-height: 1.85;
+  }
+
   .prose-sheet strong {
     color: var(--color-ink);
     font-weight: 600;
@@ -240,91 +282,6 @@
   .rule-h {
     height: 1px;
     background: var(--rule-strong);
-  }
-
-  /* The phase axis: a traverse line with a surveyor's mark on it. Gold,
-     because on this sheet gold means a control or a measured value. */
-  .axis-input {
-    appearance: none;
-    background: transparent;
-    height: 2.25rem;
-    cursor: ew-resize;
-    touch-action: pan-y;
-  }
-
-  .axis-input::-webkit-slider-runnable-track {
-    height: 2.25rem;
-    background:
-      linear-gradient(var(--color-gold-ink), var(--color-gold-ink)) no-repeat
-        left 50% / var(--pct, 0%) 2px,
-      linear-gradient(var(--rule-strong), var(--rule-strong)) no-repeat left 50% /
-        100% 2px,
-      repeating-linear-gradient(
-          to right,
-          var(--rule-strong) 0 1px,
-          transparent 1px 33.3333%
-        )
-        no-repeat left calc(50% - 7px) / 100% 8px;
-  }
-
-  .axis-input::-moz-range-track {
-    height: 2.25rem;
-    background:
-      linear-gradient(var(--rule-strong), var(--rule-strong)) no-repeat left 50% /
-        100% 2px,
-      repeating-linear-gradient(
-          to right,
-          var(--rule-strong) 0 1px,
-          transparent 1px 33.3333%
-        )
-        no-repeat left calc(50% - 7px) / 100% 8px;
-  }
-
-  .axis-input::-moz-range-progress {
-    height: 2px;
-    background: var(--color-gold-ink);
-  }
-
-  .axis-input::-webkit-slider-thumb {
-    appearance: none;
-    width: 1.125rem;
-    height: 1.125rem;
-    margin-top: calc((2.25rem - 1.125rem) / 2);
-    background: var(--color-gold);
-    border: 2px solid var(--color-gold-ink);
-    border-radius: 0;
-    transform: rotate(45deg);
-    transition:
-      box-shadow 300ms ease-out,
-      background-color 300ms ease-out;
-  }
-
-  .axis-input::-moz-range-thumb {
-    width: 1.125rem;
-    height: 1.125rem;
-    background: var(--color-gold);
-    border: 2px solid var(--color-gold-ink);
-    border-radius: 0;
-    transform: rotate(45deg);
-    transition:
-      box-shadow 300ms ease-out,
-      background-color 300ms ease-out;
-  }
-
-  .axis-input:hover::-webkit-slider-thumb,
-  .axis-input:focus-visible::-webkit-slider-thumb {
-    box-shadow: 0 2px 10px -2px color-mix(in srgb, var(--color-gold-ink) 70%, transparent);
-    background: var(--color-gold-bright);
-  }
-
-  .axis-input:hover::-moz-range-thumb,
-  .axis-input:focus-visible::-moz-range-thumb {
-    box-shadow: 0 2px 10px -2px color-mix(in srgb, var(--color-gold-ink) 70%, transparent);
-    background: var(--color-gold-bright);
-  }
-
-  .axis-input:focus-visible {
-    outline-offset: 1px;
   }
 }
 
@@ -388,14 +345,6 @@
        at the drawing's origin. */
     .ink-in {
       transform: none !important;
-    }
-  }
-
-  /* At phone widths the drawing's leader labels would render at four or
-     five pixels. The legend list below the plan carries them instead. */
-  @media (max-width: 1023px) {
-    .plan-leader {
-      display: none;
     }
   }
 }

@@ -1,10 +1,10 @@
-import type { Copy } from "../content";
+import { PHOTOS, type Copy } from "../content";
 import { useInk } from "../lib/hooks";
-import { HassFigure } from "./figures";
+import { Photo } from "./Photo";
 
 /**
- * One crop, one place. The plate carries the variety; the text carries the
- * reason. No photograph is faked here and none is implied.
+ * One crop, one place. The photograph carries the variety; the text carries
+ * the reason.
  */
 export function Product({ copy }: { copy: Copy }) {
   const { ref, inkAttr } = useInk<HTMLElement>();
@@ -18,18 +18,14 @@ export function Product({ copy }: { copy: Copy }) {
       className="relative z-10 border-y border-[var(--rule-strong)] bg-paper-deep/55 px-5 py-20 sm:px-8 sm:py-24 lg:py-28"
     >
       <div className="mx-auto grid max-w-[var(--sheet-max)] items-center gap-x-14 gap-y-12 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)]">
-        <figure className="m-0">
-          <HassFigure
-            labels={p.parts as unknown as { key: string; label: string }[]}
-            className="w-full max-w-[26rem] text-ink"
-          />
-          <figcaption
-            className="annot-sm ink-in mt-3 text-ink-faint"
-            style={{ "--d": "700ms" } as React.CSSProperties}
-          >
-            {p.figureCaption}
-          </figcaption>
-        </figure>
+        <Photo
+          {...PHOTOS.product}
+          alt={p.photo.alt}
+          caption={p.photo.caption}
+          ratioClass="aspect-[3/4]"
+          sizes="26rem"
+          className="ink-in w-full max-w-[26rem] justify-self-center lg:justify-self-start"
+        />
 
         <div>
           <h2

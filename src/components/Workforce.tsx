@@ -117,7 +117,7 @@ export function Workforce({ copy }: { copy: Copy }) {
             delay="90ms"
           />
           <div
-            className="ink-in sm:text-right"
+            className="ink-in sm:text-end"
             style={{ "--d": "180ms" } as React.CSSProperties}
           >
             <p className="annot-sm text-ink-faint">{w.harvest}</p>

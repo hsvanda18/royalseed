@@ -1,4 +1,4 @@
-import type { Copy } from "../content";
+import { PHOTOS, type Copy } from "../content";
 import { useInk } from "../lib/hooks";
 import {
   MarkCrown,
@@ -8,6 +8,7 @@ import {
   MarkSoil,
   MarkStamp,
 } from "./figures";
+import { Photo } from "./Photo";
 
 const PILLAR_MARKS = [
   MarkFertigation,
@@ -56,13 +57,13 @@ export function Method({ copy }: { copy: Copy }) {
             return (
               <li
                 key={pillar.key}
-                className="ink-in relative border-l border-[var(--rule-strong)] pl-6 lg:border-l-0 lg:border-t lg:pl-0 lg:pt-9"
+                className="ink-in relative border-s border-[var(--rule-strong)] ps-6 lg:border-s-0 lg:border-t lg:ps-0 lg:pt-9"
                 style={{ "--d": `${140 + i * 80}ms` } as React.CSSProperties}
               >
                 {/* The station: where the traverse line is occupied. */}
                 <span
                   aria-hidden
-                  className="absolute left-0 top-1 h-[9px] w-[9px] -translate-x-1/2 rotate-45 border border-ink bg-paper lg:left-0 lg:top-0 lg:-translate-y-1/2 lg:translate-x-0"
+                  className="absolute start-0 top-1 h-[9px] w-[9px] -translate-x-1/2 rotate-45 border border-ink bg-paper rtl:translate-x-1/2 lg:top-0 lg:-translate-y-1/2 lg:translate-x-0 rtl:lg:translate-x-0"
                 />
                 <Mark className="h-8 w-8 text-ink-soft" />
                 <h3 className="mt-4 font-display text-[1.15rem] font-semibold leading-[1.3] text-ink">
@@ -75,6 +76,22 @@ export function Method({ copy }: { copy: Copy }) {
             );
           })}
         </ol>
+
+        {/* Column widths 1 : 1 : 2 with ratios 4/5, 4/5, 8/5 give the row one
+            common height. */}
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-[1fr_1fr_2fr]">
+          {PHOTOS.method.map((photo, i) => (
+            <Photo
+              key={photo.src}
+              {...photo}
+              alt={m.photos[i].alt}
+              caption={m.photos[i].caption}
+              ratioClass={i === 2 ? "aspect-[16/9] lg:aspect-[8/5]" : "aspect-[4/5]"}
+              sizes={i === 2 ? "(min-width: 1024px) 44rem, 100vw" : "(min-width: 640px) 50vw, 100vw"}
+              className={`ink-in ${i === 2 ? "sm:col-span-2 lg:col-span-1" : ""}`}
+            />
+          ))}
+        </div>
 
         <p
           className="ink-in mt-14 max-w-[44rem] border-t-2 border-ink pt-6 font-display text-[clamp(1.25rem,2.4vw,1.65rem)] leading-[1.4] text-ink lg:mt-16"

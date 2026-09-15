@@ -1,6 +1,7 @@
-import type { Copy } from "../content";
+import { PHOTOS, type Copy } from "../content";
 import { useInk } from "../lib/hooks";
 import { MarkCaliper, MarkContour, MarkEmitter, MarkMonument } from "./figures";
+import { Photo } from "./Photo";
 
 const VALUE_MARKS = [MarkContour, MarkEmitter, MarkCaliper, MarkMonument];
 
@@ -36,6 +37,15 @@ export function Charter({ copy }: { copy: Copy }) {
           >
             {c.mission}
           </p>
+
+          <Photo
+            {...PHOTOS.mission}
+            alt={c.photo.alt}
+            caption={c.photo.caption}
+            ratioClass="aspect-[16/10]"
+            sizes="(min-width: 1024px) 56rem, 100vw"
+            className="ink-in mt-6 max-w-[56rem] lg:col-start-2"
+          />
         </div>
 
         {/* Vision — filed in the margin, at margin scale. */}

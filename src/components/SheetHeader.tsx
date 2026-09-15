@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { Copy, Lang } from "../content";
+import { COPY, LANGS, type Copy, type Lang } from "../content";
 import { useActiveRegion } from "../lib/hooks";
 
 const REGIONS = ["plan", "charter", "product", "method", "origin", "people", "contact"] as const;
@@ -7,9 +7,9 @@ const REGIONS = ["plan", "charter", "product", "method", "origin", "people", "co
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <img
-      src="/assets/royalseed-logo.png"
-      width={742}
-      height={382}
+      src="/assets/royalseed-mark.png"
+      width={686}
+      height={322}
       alt="Royalseed Agro"
       className={className}
       decoding="async"
@@ -29,7 +29,6 @@ export function SheetHeader({
   const active = useActiveRegion(REGIONS as unknown as string[]);
   const [lifted, setLifted] = useState(false);
   const [open, setOpen] = useState(false);
-  const legendLabel = lang === "pt" ? "Legenda" : "Legend";
 
   useEffect(() => {
     const onScroll = () => setLifted(window.scrollY > 24);
@@ -41,7 +40,7 @@ export function SheetHeader({
   // A panel left open across a resize into the desktop layout would be
   // hidden but still focusable.
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 1024px)");
+    const mq = window.matchMedia("(min-width: 1280px)");
     const onChange = () => mq.matches && setOpen(false);
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
@@ -56,20 +55,20 @@ export function SheetHeader({
           : "border-b border-transparent bg-transparent",
       ].join(" ")}
     >
-      <div className="mx-auto flex h-[4.25rem] max-w-[var(--sheet-max)] items-center gap-4 px-5 sm:px-8">
+      <div className="mx-auto flex h-[4.75rem] max-w-[var(--sheet-max)] items-center gap-4 px-5 sm:h-[5.25rem] sm:px-8">
         <a
           href="#plan"
           className="shrink-0"
-          aria-label={lang === "pt" ? "Royalseed Agro — início" : "Royalseed Agro — home"}
+          aria-label={copy.ui.homeLabel}
         >
-          <Logo className="h-8 w-auto sm:h-9" />
+          <Logo className="h-12 w-auto sm:h-[3.75rem]" />
         </a>
 
         {/* The legend is the navigation: on a plan, the legend is how you
             find anything. */}
         <nav
-          aria-label={lang === "pt" ? "Legenda da folha" : "Sheet legend"}
-          className="ml-auto hidden lg:block"
+          aria-label={copy.ui.navLabel}
+          className="ms-auto hidden xl:block"
         >
           <ul className="flex items-center gap-1">
             {REGIONS.map((id) => {
@@ -98,7 +97,7 @@ export function SheetHeader({
           </ul>
         </nav>
 
-        <div className="ml-auto flex items-center gap-2 sm:gap-3 lg:ml-4">
+        <div className="ms-auto flex items-center gap-2 sm:gap-3 xl:ms-4">
           <LangToggle lang={lang} setLang={setLang} copy={copy} />
 
           {/* Below lg the legend collapses into a disclosure. The sheet is one
@@ -109,9 +108,9 @@ export function SheetHeader({
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls="legend-panel"
-            className="annot-sm flex items-center gap-2 border border-[var(--rule-strong)] px-3 py-2.5 text-ink-soft transition-colors duration-300 hover:text-ink lg:hidden"
+            className="annot-sm flex items-center gap-2 border border-[var(--rule-strong)] px-3 py-2.5 text-ink-soft transition-colors duration-300 hover:text-ink xl:hidden"
           >
-            {legendLabel}
+            {copy.ui.menuLabel}
             <span
               aria-hidden
               className="transition-transform duration-400"
@@ -121,12 +120,13 @@ export function SheetHeader({
             </span>
           </button>
 
-          {/* At 390px the logo, the language pair, the legend and this button
-              do not fit on one row. Below sm the action lives in the legend
-              panel's own contact entry and in the hero, both a thumb away. */}
+          {/* At 390px the logo, the language selector, the menu and this
+              button do not fit on one row. Below sm the action lives in the
+              menu's own contact entry and in the hero, both a thumb away. At
+              xl the navigation carries Contact itself. */}
           <a
             href="#contact"
-            className="annot-sm hidden border border-gold-ink px-3 py-2.5 text-gold-ink transition-colors duration-300 hover:bg-gold-ink hover:text-paper sm:inline-block sm:px-4"
+            className="annot-sm hidden border border-gold-ink px-3 py-2.5 text-gold-ink transition-colors duration-300 hover:bg-gold-ink hover:text-paper sm:inline-block sm:px-4 xl:hidden"
           >
             {copy.hero.cta}
           </a>
@@ -137,7 +137,7 @@ export function SheetHeader({
       <div
         id="legend-panel"
         hidden={!open}
-        className="border-t border-[var(--rule-strong)] bg-paper lg:hidden"
+        className="border-t border-[var(--rule-strong)] bg-paper xl:hidden"
       >
         <ul className="mx-auto max-w-[var(--sheet-max)] px-5 py-3 sm:px-8">
           {REGIONS.map((id) => {
@@ -166,7 +166,7 @@ export function SheetHeader({
                   />
                   {isAction ? copy.hero.cta : copy.nav[id]}
                   {isAction && (
-                    <span aria-hidden className="ml-auto">
+                    <span aria-hidden className="ms-auto inline-block rtl:-scale-x-100">
                       →
                     </span>
                   )}
@@ -180,6 +180,11 @@ export function SheetHeader({
   );
 }
 
+/**
+ * Six languages do not fit as a button row beside the navigation. A native
+ * select keeps the platform's own picker on phones; the closed state shows
+ * only the language code so the header does not reflow per language.
+ */
 function LangToggle({
   lang,
   setLang,
@@ -190,28 +195,23 @@ function LangToggle({
   copy: Copy;
 }) {
   return (
-    <div
-      role="group"
-      aria-label={copy.langLabel}
-      className="flex items-stretch border border-[var(--rule-strong)]"
-    >
-      {(["pt", "en"] as const).map((code) => {
-        const isOn = lang === code;
-        return (
-          <button
-            key={code}
-            type="button"
-            onClick={() => setLang(code)}
-            aria-pressed={isOn}
-            className={[
-              "annot-sm px-2.5 py-2 transition-colors duration-300",
-              isOn ? "bg-ink text-paper" : "text-ink-soft hover:text-ink",
-            ].join(" ")}
-          >
-            {code.toUpperCase()}
-          </button>
-        );
-      })}
-    </div>
+    <label className="relative flex items-center border border-[var(--rule-strong)] transition-colors duration-300 focus-within:border-ink hover:border-ink">
+      <span className="sr-only">{copy.ui.langLabel}</span>
+      <span aria-hidden className="annot-sm flex items-center gap-1.5 py-2.5 pe-2 ps-3 text-ink">
+        {lang.toUpperCase()}
+        <span className="text-ink-faint">▾</span>
+      </span>
+      <select
+        value={lang}
+        onChange={(e) => setLang(e.target.value as Lang)}
+        className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+      >
+        {LANGS.map((code) => (
+          <option key={code} value={code} lang={COPY[code].htmlLang}>
+            {code.toUpperCase()} — {COPY[code].langName}
+          </option>
+        ))}
+      </select>
+    </label>
   );
 }

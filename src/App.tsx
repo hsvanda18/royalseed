@@ -1,9 +1,8 @@
-import { AreaSchedule } from "./components/AreaSchedule";
 import { Charter } from "./components/Charter";
 import { Colophon, Contact } from "./components/Contact";
 import { Method } from "./components/Method";
 import { Origin } from "./components/Origin";
-import { PlanSheet } from "./components/PlanSheet";
+import { Overview } from "./components/Overview";
 import { Product } from "./components/Product";
 import { SheetHeader } from "./components/SheetHeader";
 import { Workforce } from "./components/Workforce";
@@ -18,7 +17,7 @@ export default function App() {
         href="#plan"
         className="annot-sm sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-ink focus:bg-paper focus:px-4 focus:py-3 focus:text-ink"
       >
-        {copy.skipToContent}
+        {copy.ui.skipToContent}
       </a>
 
       <SheetHeader copy={copy} lang={lang} setLang={setLang} />
@@ -27,8 +26,7 @@ export default function App() {
           for whichever regions are on screen, rather than leaving a
           half-inked sheet holding the other language's measure. */}
       <main key={lang}>
-        <PlanSheet copy={copy} />
-        <AreaSchedule copy={copy} />
+        <Overview copy={copy} />
         <Charter copy={copy} />
         <Product copy={copy} />
         <Method copy={copy} />

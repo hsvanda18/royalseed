@@ -48,7 +48,7 @@ function detectLang(): Lang {
     /* private mode, blocked storage — fall through to navigator */
   }
   const nav = window.navigator?.language?.toLowerCase() ?? "pt";
-  return nav.startsWith("pt") ? "pt" : "en";
+  return LANGS.find((code) => nav.startsWith(code)) ?? "pt";
 }
 
 export function useLang() {
@@ -67,6 +67,7 @@ export function useLang() {
 
   useEffect(() => {
     document.documentElement.lang = copy.htmlLang;
+    document.documentElement.dir = copy.dir;
     document.title = copy.meta.title;
     const set = (selector: string, attr: string, value: string) => {
       const el = document.head.querySelector(selector);
@@ -76,8 +77,8 @@ export function useLang() {
     set('meta[property="og:title"]', "content", copy.meta.title);
     set('meta[property="og:description"]', "content", copy.meta.description);
     set('meta[property="og:image:alt"]', "content", copy.meta.ogAlt);
-    set('meta[property="og:locale"]', "content", lang === "pt" ? "pt_PT" : "en_GB");
-  }, [copy, lang]);
+    set('meta[property="og:locale"]', "content", copy.ogLocale);
+  }, [copy]);
 
   return { lang, setLang, copy };
 }

@@ -1,0 +1,136 @@
+"""
+Prepares the site's raster assets from files the client supplied.
+
+  1. Photographs: the originals sent by WhatsApp (Sept 2026), resized to at
+     most 1200px on the long side (1600px for the full-width overview),
+     never upscaled, and re-encoded to WebP.
+     Only real photographs are published. The client's folder also holds
+     three generated illustrations (IMG-20260913-WA0031..33); they are not
+     used as photographs.
+  2. Logotype: the supplied PNGs carry an opaque #F7F7F7 field. It is
+     removed by a flood fill seeded from the border — enclosed whites (crown
+     highlights, leaf veins) are never reached — and the result is cropped
+     to the artwork so the mark can be set larger at the same height.
+
+No generative model is involved; artwork pixels pass through untouched
+except for edge de-fringing against the removed field.
+
+    python tools/prepare-assets.py "C:/Users/<you>/Downloads/Royal"
+"""
+import sys
+from collections import deque
+from pathlib import Path
+
+from PIL import Image, ImageOps
+
+ROOT = Path(__file__).resolve().parent.parent
+PHOTOS = ROOT / "public" / "photos"
+ASSETS = ROOT / "public" / "assets"
+MAX_EDGE = 1200
+# The full-width overview photograph is the only one drawn wider than ~56rem.
+WIDE = {"pomar-aereo": 1600}
+
+# source file (in the client's folder) -> published name
+PHOTO_SOURCES = {
+    # Also placed in "ALTERAÇOES DO WEBSITE.pdf"; these are the originals.
+    "IMG-20260910-WA0000.jpg": "abacate-hass",
+    "IMG-20260910-WA0001.jpg": "viveiro-corredor",
+    "IMG-20260910-WA0002.jpg": "pomar-aereo",
+    "IMG-20260910-WA0003.jpg": "pomar-missao",
+    "IMG-20260910-WA0004.jpg": "viveiro-mudas",
+    "IMG-20260910-WA0005.jpg": "pomar-linha",
+    # Study trip.
+    "IMG-20260913-WA0001.jpg": "estudo-pomar",
+    "IMG-20260913-WA0009.jpg": "estudo-viveiro",
+    "IMG-20260913-WA0007.jpg": "estudo-estufa",
+    "IMG-20260913-WA0021.jpg": "estudo-processamento",
+    "IMG-20260913-WA0010.jpg": "estudo-reuniao",
+    "IMG-20260913-WA0025.jpg": "estudo-parceiros",
+}
+
+
+def export_photos(src_dir: Path) -> None:
+    PHOTOS.mkdir(parents=True, exist_ok=True)
+    for f in PHOTOS.glob("*.webp"):
+        f.unlink()
+    for src, name in PHOTO_SOURCES.items():
+        im = ImageOps.exif_transpose(Image.open(src_dir / src)).convert("RGB")
+        edge = WIDE.get(name, MAX_EDGE)
+        im.thumbnail((edge, edge), Image.LANCZOS)
+        out = PHOTOS / f"{name}.webp"
+        im.save(out, "WEBP", quality=68, method=6)
+        print(f"{out.name}: {im.size[0]}x{im.size[1]}, {out.stat().st_size // 1024} KB")
+
+
+def cut_field(src: Path, dst: Path, field=(247, 247, 247), tol=14, soft=70, min_counter=250) -> None:
+    im = Image.open(src).convert("RGBA")
+    w, h = im.size
+    px = im.load()
+
+    def dist(p):
+        return max(abs(p[0] - field[0]), abs(p[1] - field[1]), abs(p[2] - field[2]))
+
+    seen = bytearray(w * h)
+    q = deque()
+    for x in range(w):
+        q.extend([(x, 0), (x, h - 1)])
+    for y in range(h):
+        q.extend([(0, y), (w - 1, y)])
+
+    while q:
+        x, y = q.popleft()
+        i = y * w + x
+        if seen[i]:
+            continue
+        seen[i] = 1
+        p = px[x, y]
+        d = dist(p)
+        if d <= tol:
+            px[x, y] = (0, 0, 0, 0)
+            for nx, ny in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+                if 0 <= nx < w and 0 <= ny < h and not seen[ny * w + nx]:
+                    q.append((nx, ny))
+        elif d < soft:
+            # Anti-aliased fringe: recover alpha and un-mix the field colour.
+            a = (d - tol) / (soft - tol)
+            rgb = [
+                max(0, min(255, round((c - f * (1 - a)) / a)))
+                for c, f in zip(p[:3], field)
+            ]
+            px[x, y] = (*rgb, round(255 * a))
+
+    # Letter counters (o, a, e, d) enclose the field, so the border flood
+    # never reaches them. Clear any remaining flat field region large enough
+    # to be a counter; crown highlights and leaf veins are gradients, not
+    # flat, and stay.
+    for sy in range(h):
+        for sx in range(w):
+            if seen[sy * w + sx] or dist(px[sx, sy]) > 3:
+                continue
+            region, stack = [], [(sx, sy)]
+            seen[sy * w + sx] = 1
+            while stack:
+                x, y = stack.pop()
+                region.append((x, y))
+                for nx, ny in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+                    j = ny * w + nx
+                    if 0 <= nx < w and 0 <= ny < h and not seen[j] and dist(px[nx, ny]) <= tol:
+                        seen[j] = 1
+                        stack.append((nx, ny))
+            if len(region) >= min_counter:
+                for x, y in region:
+                    px[x, y] = (0, 0, 0, 0)
+
+    bbox = im.getchannel("A").getbbox()
+    pad = 4
+    im = im.crop((max(0, bbox[0] - pad), max(0, bbox[1] - pad),
+                  min(w, bbox[2] + pad), min(h, bbox[3] + pad)))
+    im.save(dst, optimize=True)
+    print(f"{dst.name}: {im.size[0]}x{im.size[1]}, {dst.stat().st_size // 1024} KB")
+
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        export_photos(Path(sys.argv[1]))
+    cut_field(ASSETS / "royalseed-logo.png", ASSETS / "royalseed-mark.png")
+    cut_field(ASSETS / "royalseed-logo-reversed.png", ASSETS / "royalseed-mark-reversed.png")
