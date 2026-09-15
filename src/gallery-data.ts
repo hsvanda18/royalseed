@@ -4,39 +4,37 @@ export type GalleryPhoto = { thumb: string; full: string; width: number; height:
 
 export const GALLERY: Record<"angola" | "kenya", GalleryPhoto[]> = {
   angola: [
-    { thumb: "/photos/angola/01-t.webp", full: "/photos/angola/01.webp", width: 720, height: 1280 }, // IMG-20260910-WA0000.jpg
-    { thumb: "/photos/angola/02-t.webp", full: "/photos/angola/02.webp", width: 1050, height: 1400 }, // IMG-20260910-WA0001.jpg
-    { thumb: "/photos/angola/03-t.webp", full: "/photos/angola/03.webp", width: 1400, height: 1050 }, // IMG-20260910-WA0002.jpg
-    { thumb: "/photos/angola/04-t.webp", full: "/photos/angola/04.webp", width: 1280, height: 1137 }, // IMG-20260910-WA0003.jpg
-    { thumb: "/photos/angola/05-t.webp", full: "/photos/angola/05.webp", width: 1050, height: 1400 }, // IMG-20260910-WA0004.jpg
-    { thumb: "/photos/angola/06-t.webp", full: "/photos/angola/06.webp", width: 1280, height: 960 }, // IMG-20260910-WA0005.jpg
-    { thumb: "/photos/angola/07-t.webp", full: "/photos/angola/07.webp", width: 1331, height: 1182 }, // IMG-20260910-WA0006.jpg
-    { thumb: "/photos/angola/08-t.webp", full: "/photos/angola/08.webp", width: 1050, height: 1400 }, // IMG-20260910-WA0007.jpg
-    { thumb: "/photos/angola/09-t.webp", full: "/photos/angola/09.webp", width: 1400, height: 1050 }, // IMG-20260910-WA0008.jpg
+    { thumb: "/photos/angola/01-t.webp", full: "/photos/angola/01.webp", width: 1280, height: 960 }, // IMG-20260913-WA0001.jpg
+    { thumb: "/photos/angola/02-t.webp", full: "/photos/angola/02.webp", width: 1280, height: 960 }, // IMG-20260913-WA0002.jpg
+    { thumb: "/photos/angola/03-t.webp", full: "/photos/angola/03.webp", width: 1280, height: 960 }, // IMG-20260913-WA0003.jpg
+    { thumb: "/photos/angola/04-t.webp", full: "/photos/angola/04.webp", width: 1280, height: 1280 }, // IMG-20260913-WA0004.jpg
+    { thumb: "/photos/angola/05-t.webp", full: "/photos/angola/05.webp", width: 1280, height: 960 }, // IMG-20260913-WA0005.jpg
+    { thumb: "/photos/angola/06-t.webp", full: "/photos/angola/06.webp", width: 1280, height: 1280 }, // IMG-20260913-WA0006.jpg
+    { thumb: "/photos/angola/07-t.webp", full: "/photos/angola/07.webp", width: 1280, height: 1280 }, // IMG-20260913-WA0007.jpg
+    { thumb: "/photos/angola/08-t.webp", full: "/photos/angola/08.webp", width: 1280, height: 960 }, // IMG-20260913-WA0008.jpg
+    { thumb: "/photos/angola/09-t.webp", full: "/photos/angola/09.webp", width: 1280, height: 1280 }, // IMG-20260913-WA0009.jpg
+    { thumb: "/photos/angola/10-t.webp", full: "/photos/angola/10.webp", width: 1280, height: 960 }, // IMG-20260913-WA0010.jpg
+    { thumb: "/photos/angola/11-t.webp", full: "/photos/angola/11.webp", width: 1280, height: 1280 }, // IMG-20260913-WA0011.jpg
   ],
   kenya: [
-    { thumb: "/photos/kenya/01-t.webp", full: "/photos/kenya/01.webp", width: 1280, height: 960 }, // IMG-20260913-WA0001.jpg
-    { thumb: "/photos/kenya/02-t.webp", full: "/photos/kenya/02.webp", width: 1280, height: 960 }, // IMG-20260913-WA0002.jpg
-    { thumb: "/photos/kenya/03-t.webp", full: "/photos/kenya/03.webp", width: 1280, height: 960 }, // IMG-20260913-WA0003.jpg
-    { thumb: "/photos/kenya/04-t.webp", full: "/photos/kenya/04.webp", width: 1280, height: 1280 }, // IMG-20260913-WA0004.jpg
-    { thumb: "/photos/kenya/05-t.webp", full: "/photos/kenya/05.webp", width: 1280, height: 960 }, // IMG-20260913-WA0005.jpg
-    { thumb: "/photos/kenya/06-t.webp", full: "/photos/kenya/06.webp", width: 1280, height: 1280 }, // IMG-20260913-WA0006.jpg
-    { thumb: "/photos/kenya/07-t.webp", full: "/photos/kenya/07.webp", width: 1280, height: 1280 }, // IMG-20260913-WA0007.jpg
-    { thumb: "/photos/kenya/08-t.webp", full: "/photos/kenya/08.webp", width: 1280, height: 960 }, // IMG-20260913-WA0008.jpg
-    { thumb: "/photos/kenya/09-t.webp", full: "/photos/kenya/09.webp", width: 1280, height: 1280 }, // IMG-20260913-WA0009.jpg
-    { thumb: "/photos/kenya/10-t.webp", full: "/photos/kenya/10.webp", width: 1280, height: 960 }, // IMG-20260913-WA0010.jpg
-    { thumb: "/photos/kenya/11-t.webp", full: "/photos/kenya/11.webp", width: 1280, height: 1280 }, // IMG-20260913-WA0011.jpg
-    { thumb: "/photos/kenya/12-t.webp", full: "/photos/kenya/12.webp", width: 1280, height: 848 }, // IMG-20260913-WA0013.jpg
-    { thumb: "/photos/kenya/13-t.webp", full: "/photos/kenya/13.webp", width: 1280, height: 960 }, // IMG-20260913-WA0015.jpg
-    { thumb: "/photos/kenya/14-t.webp", full: "/photos/kenya/14.webp", width: 1280, height: 720 }, // IMG-20260913-WA0016.jpg
-    { thumb: "/photos/kenya/15-t.webp", full: "/photos/kenya/15.webp", width: 1280, height: 649 }, // IMG-20260913-WA0017.jpg
-    { thumb: "/photos/kenya/16-t.webp", full: "/photos/kenya/16.webp", width: 1280, height: 960 }, // IMG-20260913-WA0019.jpg
-    { thumb: "/photos/kenya/17-t.webp", full: "/photos/kenya/17.webp", width: 1280, height: 896 }, // IMG-20260913-WA0020.jpg
-    { thumb: "/photos/kenya/18-t.webp", full: "/photos/kenya/18.webp", width: 1280, height: 960 }, // IMG-20260913-WA0021.jpg
-    { thumb: "/photos/kenya/19-t.webp", full: "/photos/kenya/19.webp", width: 1280, height: 960 }, // IMG-20260913-WA0023.jpg
-    { thumb: "/photos/kenya/20-t.webp", full: "/photos/kenya/20.webp", width: 1280, height: 896 }, // IMG-20260913-WA0024.jpg
-    { thumb: "/photos/kenya/21-t.webp", full: "/photos/kenya/21.webp", width: 1280, height: 960 }, // IMG-20260913-WA0025.jpg
-    { thumb: "/photos/kenya/22-t.webp", full: "/photos/kenya/22.webp", width: 1280, height: 960 }, // IMG-20260913-WA0027.jpg
-    { thumb: "/photos/kenya/23-t.webp", full: "/photos/kenya/23.webp", width: 1280, height: 955 }, // IMG-20260913-WA0028.jpg
+    { thumb: "/photos/kenya/01-t.webp", full: "/photos/kenya/01.webp", width: 1280, height: 960 }, // IMG-20260913-WA0012.jpg
+    { thumb: "/photos/kenya/02-t.webp", full: "/photos/kenya/02.webp", width: 1280, height: 848 }, // IMG-20260913-WA0013.jpg
+    { thumb: "/photos/kenya/03-t.webp", full: "/photos/kenya/03.webp", width: 1280, height: 960 }, // IMG-20260913-WA0014.jpg
+    { thumb: "/photos/kenya/04-t.webp", full: "/photos/kenya/04.webp", width: 1280, height: 960 }, // IMG-20260913-WA0015.jpg
+    { thumb: "/photos/kenya/05-t.webp", full: "/photos/kenya/05.webp", width: 1280, height: 720 }, // IMG-20260913-WA0016.jpg
+    { thumb: "/photos/kenya/06-t.webp", full: "/photos/kenya/06.webp", width: 1280, height: 649 }, // IMG-20260913-WA0017.jpg
+    { thumb: "/photos/kenya/07-t.webp", full: "/photos/kenya/07.webp", width: 1280, height: 960 }, // IMG-20260913-WA0018.jpg
+    { thumb: "/photos/kenya/08-t.webp", full: "/photos/kenya/08.webp", width: 1280, height: 960 }, // IMG-20260913-WA0019.jpg
+    { thumb: "/photos/kenya/09-t.webp", full: "/photos/kenya/09.webp", width: 1280, height: 896 }, // IMG-20260913-WA0020.jpg
+    { thumb: "/photos/kenya/10-t.webp", full: "/photos/kenya/10.webp", width: 1280, height: 960 }, // IMG-20260913-WA0021.jpg
+    { thumb: "/photos/kenya/11-t.webp", full: "/photos/kenya/11.webp", width: 1280, height: 960 }, // IMG-20260913-WA0022.jpg
+    { thumb: "/photos/kenya/12-t.webp", full: "/photos/kenya/12.webp", width: 1280, height: 960 }, // IMG-20260913-WA0023.jpg
+    { thumb: "/photos/kenya/13-t.webp", full: "/photos/kenya/13.webp", width: 1280, height: 896 }, // IMG-20260913-WA0024.jpg
+    { thumb: "/photos/kenya/14-t.webp", full: "/photos/kenya/14.webp", width: 1280, height: 960 }, // IMG-20260913-WA0025.jpg
+    { thumb: "/photos/kenya/15-t.webp", full: "/photos/kenya/15.webp", width: 1280, height: 960 }, // IMG-20260913-WA0026.jpg
+    { thumb: "/photos/kenya/16-t.webp", full: "/photos/kenya/16.webp", width: 1280, height: 960 }, // IMG-20260913-WA0027.jpg
+    { thumb: "/photos/kenya/17-t.webp", full: "/photos/kenya/17.webp", width: 1280, height: 955 }, // IMG-20260913-WA0028.jpg
+    { thumb: "/photos/kenya/18-t.webp", full: "/photos/kenya/18.webp", width: 1280, height: 960 }, // IMG-20260913-WA0029.jpg
+    { thumb: "/photos/kenya/19-t.webp", full: "/photos/kenya/19.webp", width: 1280, height: 960 }, // IMG-20260913-WA0030.jpg
   ],
 };

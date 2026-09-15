@@ -70,13 +70,6 @@ export const es: Copy = {
     visionTitle: "Visión",
     vision:
       "Convertirnos en un referente nacional y regional en producción y exportación, con capacidad para integrar producción, logística y, en el futuro, procesamiento.",
-    valuesTitle: "Valores",
-    values: [
-      { name: "Sostenibilidad", gloss: "El suelo y el agua de Lonhe tienen que servir a quienes vengan después." },
-      { name: "Innovación", gloss: "Fertirrigación, material vegetal certificado, gestión técnica." },
-      { name: "Calidad", gloss: "El mercado al que aspiramos no acepta fruta mediocre." },
-      { name: "Integridad", gloss: "Decimos la fase en la que estamos, no la que nos gustaría haber alcanzado." },
-    ],
   },
 
   product: {
@@ -86,19 +79,18 @@ export const es: Copy = {
       "Elegimos el aguacate porque creemos en el enorme potencial de este producto en el mercado internacional, sobre todo teniendo en cuenta el crecimiento mundial de la demanda de alimentos saludables y de productos agrícolas de exportación.",
     photo: {
       alt: "Aguacates Hass de piel verde y rugosa colgando del árbol entre las hojas.",
-      caption: "Aguacate Hass en el árbol. Su piel gruesa y rugosa es lo que le permite viajar.",
     },
-    variety: "Variedad",
-    varietyNote:
-      "Hass. La variedad que el mercado de exportación conoce, transporta y pide por su nombre.",
-    place: "Lugar",
-    placeNote:
-      "Lonhe, en el municipio de Quibala, provincia de Cuanza Sul. Un origen, un cultivo, un bloque.",
+    valuesTitle: "Valores",
+    values: [
+      { name: "Sostenibilidad", gloss: "El suelo y el agua de Lonhe tienen que servir a quienes vengan después." },
+      { name: "Innovación", gloss: "Fertirrigación, material vegetal certificado, gestión técnica." },
+      { name: "Calidad", gloss: "El mercado al que aspiramos no acepta fruta mediocre." },
+      { name: "Integridad", gloss: "Decimos la fase en la que estamos, no la que nos gustaría haber alcanzado." },
+    ],
   },
 
   method: {
     title: "Estrategia de producción",
-    lede: "Nuestro modelo de producción se basa en seis puntos. Ninguno es nuevo. Todos los exige quien compra.",
     pillars: [
       {
         key: "fertigation",

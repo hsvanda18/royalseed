@@ -70,13 +70,6 @@ export const pt: Copy = {
     visionTitle: "Visão",
     vision:
       "Tornar-se referência nacional e regional na produção e exportação, com capacidade de integrar produção, logística e futuro processamento.",
-    valuesTitle: "Valores",
-    values: [
-      { name: "Sustentabilidade", gloss: "O solo e a água de Lonhe têm de servir a quem vier depois." },
-      { name: "Inovação", gloss: "Fertirrigação, material vegetal certificado, gestão técnica." },
-      { name: "Qualidade", gloss: "O mercado que queremos não aceita fruta média." },
-      { name: "Integridade", gloss: "Dizemos a fase em que estamos, não a que queríamos ter." },
-    ],
   },
 
   product: {
@@ -86,19 +79,18 @@ export const pt: Copy = {
       "Escolhemos o abacate por acreditarmos no enorme potencial deste produto no mercado internacional, especialmente considerando o crescimento global da procura por alimentos saudáveis e produtos agrícolas de exportação.",
     photo: {
       alt: "Frutos de abacate Hass, de casca verde e rugosa, pendurados na árvore entre as folhas.",
-      caption: "Abacate Hass na árvore. A casca espessa e rugosa é o que permite ao fruto viajar.",
     },
-    variety: "Variedade",
-    varietyNote:
-      "Hass. É a variedade que o mercado de exportação conhece, transporta e pede pelo nome.",
-    place: "Lugar",
-    placeNote:
-      "Lonhe, no município do Quibala, província do Cuanza Sul. Uma origem, uma cultura, um bloco.",
+    valuesTitle: "Valores",
+    values: [
+      { name: "Sustentabilidade", gloss: "O solo e a água de Lonhe têm de servir a quem vier depois." },
+      { name: "Inovação", gloss: "Fertirrigação, material vegetal certificado, gestão técnica." },
+      { name: "Qualidade", gloss: "O mercado que queremos não aceita fruta média." },
+      { name: "Integridade", gloss: "Dizemos a fase em que estamos, não a que queríamos ter." },
+    ],
   },
 
   method: {
     title: "Estratégia de produção",
-    lede: "O nosso modelo de produção baseia-se em seis pontos. Nenhum deles é novo. Todos são exigidos por quem compra.",
     pillars: [
       {
         key: "fertigation",

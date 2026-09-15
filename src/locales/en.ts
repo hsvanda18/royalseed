@@ -70,13 +70,6 @@ export const en: Copy = {
     visionTitle: "Vision",
     vision:
       "To become a national and regional reference in production and export, with the capacity to integrate production, logistics and future processing.",
-    valuesTitle: "Values",
-    values: [
-      { name: "Sustainability", gloss: "The soil and water at Lonhe have to serve whoever comes next." },
-      { name: "Innovation", gloss: "Fertigation, certified plant material, technical management." },
-      { name: "Quality", gloss: "The market we want does not accept average fruit." },
-      { name: "Integrity", gloss: "We state the phase we are in, not the one we would like to be in." },
-    ],
   },
 
   product: {
@@ -86,19 +79,18 @@ export const en: Copy = {
       "We chose avocado because we believe in this product's enormous potential in the international market, particularly given the global growth in demand for healthy food and export agricultural produce.",
     photo: {
       alt: "Hass avocados with green, pebbled skin hanging on the tree among the leaves.",
-      caption: "Hass avocado on the tree. The thick, pebbled skin is what lets the fruit travel.",
     },
-    variety: "Variety",
-    varietyNote:
-      "Hass. The variety the export market already knows, ships, and asks for by name.",
-    place: "Place",
-    placeNote:
-      "Lonhe, in the municipality of Quibala, Cuanza Sul province. One origin, one crop, one block.",
+    valuesTitle: "Values",
+    values: [
+      { name: "Sustainability", gloss: "The soil and water at Lonhe have to serve whoever comes next." },
+      { name: "Innovation", gloss: "Fertigation, certified plant material, technical management." },
+      { name: "Quality", gloss: "The market we want does not accept average fruit." },
+      { name: "Integrity", gloss: "We state the phase we are in, not the one we would like to be in." },
+    ],
   },
 
   method: {
     title: "Production strategy",
-    lede: "Our production model rests on six points. None of them is novel. All of them are required by the people who buy.",
     pillars: [
       {
         key: "fertigation",

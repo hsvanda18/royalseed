@@ -1,11 +1,14 @@
 import { PHOTOS, type Copy } from "../content";
 import { useInk } from "../lib/hooks";
+import { MarkCaliper, MarkContour, MarkEmitter, MarkMonument } from "./figures";
 import { Photo } from "./Photo";
 
+const VALUE_MARKS = [MarkContour, MarkEmitter, MarkCaliper, MarkMonument];
+
 /**
- * One crop, one place. The photograph carries the variety at its own
- * proportions — never cropped or stretched — held to the screen's height so
- * it and the text read together.
+ * The crop and the company's values in one screen. The photograph is shown
+ * at its own proportions — never cropped or stretched — held to the screen's
+ * height so it and the text read together.
  */
 export function Product({ copy }: { copy: Copy }) {
   const { ref, inkAttr } = useInk<HTMLElement>();
@@ -22,7 +25,6 @@ export function Product({ copy }: { copy: Copy }) {
         <Photo
           {...PHOTOS.product}
           alt={p.photo.alt}
-          caption={p.photo.caption}
           sizeClass="h-auto w-full"
           sizes="(min-width: 1024px) 22rem, 100vw"
           className="ink-in mx-auto w-full max-w-[22rem] lg:mx-0 lg:w-[calc(min(64svh,38rem)*0.5625)]"
@@ -30,37 +32,47 @@ export function Product({ copy }: { copy: Copy }) {
 
         <div>
           <h2
-            className="figure-xl ink-in text-[clamp(2.4rem,5.6vw,4rem)] text-ink"
+            className="figure-xl ink-in text-[clamp(2.4rem,5vw,3.6rem)] text-ink"
             style={{ "--d": "80ms" } as React.CSSProperties}
           >
             {p.title}
           </h2>
 
           <div
-            className="ink-in mt-9 border-t-2 border-ink pt-5"
+            className="ink-in mt-6 border-t-2 border-ink pt-4"
             style={{ "--d": "180ms" } as React.CSSProperties}
           >
             <h3 className="annot text-ink-faint">{p.why}</h3>
-            <p className="prose-sheet mt-4 max-w-[38rem]">{p.whyBody}</p>
+            <p className="prose-sheet mt-3 max-w-[44rem]">{p.whyBody}</p>
           </div>
 
-          <dl className="mt-10 grid gap-x-10 gap-y-7 sm:grid-cols-2">
-            {[
-              { term: p.variety, desc: p.varietyNote, d: "300ms" },
-              { term: p.place, desc: p.placeNote, d: "380ms" },
-            ].map((item) => (
-              <div
-                key={item.term}
-                className="ink-in border-t border-[var(--rule-strong)] pt-4"
-                style={{ "--d": item.d } as React.CSSProperties}
-              >
-                <dt className="annot-sm text-ink-faint">{item.term}</dt>
-                <dd className="mt-2.5 font-display text-[1.1875rem] leading-[1.45] text-ink">
-                  {item.desc}
-                </dd>
-              </div>
-            ))}
-          </dl>
+          {/* Values — a legend key: symbol, entry, gloss. */}
+          <div className="mt-8">
+            <h3
+              className="annot ink-in text-ink-faint"
+              style={{ "--d": "280ms" } as React.CSSProperties}
+            >
+              {p.valuesTitle}
+            </h3>
+            <dl className="mt-3 grid gap-x-10 sm:grid-cols-2">
+              {p.values.map((v, i) => {
+                const Mark = VALUE_MARKS[i];
+                return (
+                  <div
+                    key={v.name}
+                    className="ink-in grid grid-cols-[1.75rem_minmax(0,1fr)] gap-x-4 border-t border-[var(--rule-strong)] py-3.5"
+                    style={{ "--d": `${340 + i * 70}ms` } as React.CSSProperties}
+                  >
+                    <Mark className="row-span-2 mt-0.5 h-7 w-7 text-ink-soft" />
+                    <dt className="font-display text-[1.2rem] font-semibold leading-tight text-ink">
+                      {v.name}
+                    </dt>
+                    <dd className="mt-1 text-[0.9375rem] leading-relaxed text-ink-soft">{v.gloss}</dd>
+                  </div>
+                );
+              })}
+            </dl>
+          </div>
         </div>
       </div>
     </section>

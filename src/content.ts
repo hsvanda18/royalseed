@@ -114,24 +114,19 @@ export interface Copy {
     photo: PhotoCopy;
     visionTitle: string;
     vision: string;
-    valuesTitle: string;
-    values: { name: string; gloss: string }[];
   };
 
   product: {
     title: string;
     why: string;
     whyBody: string;
-    photo: PhotoCopy;
-    variety: string;
-    varietyNote: string;
-    place: string;
-    placeNote: string;
+    photo: { alt: string };
+    valuesTitle: string;
+    values: { name: string; gloss: string }[];
   };
 
   method: {
     title: string;
-    lede: string;
     pillars: Pillar[];
     photos: [PhotoCopy, PhotoCopy, PhotoCopy];
     closing: string;

@@ -1,13 +1,10 @@
 import { PHOTOS, type Copy } from "../content";
 import { useInk } from "../lib/hooks";
-import { MarkCaliper, MarkContour, MarkEmitter, MarkMonument } from "./figures";
 import { Photo } from "./Photo";
-
-const VALUE_MARKS = [MarkContour, MarkEmitter, MarkCaliper, MarkMonument];
 
 /**
  * Mission and vision sit beside the photograph so the statement and the
- * ground it is about read in one screen. The values follow as a legend key.
+ * ground it is about read in one screen.
  */
 export function Charter({ copy }: { copy: Copy }) {
   const { ref, inkAttr } = useInk<HTMLElement>();
@@ -55,39 +52,6 @@ export function Charter({ copy }: { copy: Copy }) {
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="ink-in"
           />
-        </div>
-
-        {/* Values — a legend key: symbol, entry, gloss. */}
-        <div className="mt-12 border-t border-[var(--rule-strong)] pt-6">
-          <h2
-            className="annot ink-in text-ink-faint"
-            style={{ "--d": "0ms" } as React.CSSProperties}
-          >
-            {c.valuesTitle}
-          </h2>
-
-          {/* A ruled legend schedule, not four equal icon columns: on a plan
-              a key is read down, symbol against entry against definition. */}
-          <dl className="mt-4">
-            {c.values.map((v, i) => {
-              const Mark = VALUE_MARKS[i];
-              return (
-                <div
-                  key={v.name}
-                  className="ink-in grid grid-cols-[2rem_minmax(0,1fr)] items-baseline gap-x-5 gap-y-1 border-b border-[var(--rule)] py-3.5 last:border-b-0 sm:grid-cols-[2rem_minmax(0,14rem)_minmax(0,1fr)] sm:gap-x-8"
-                  style={{ "--d": `${120 + i * 80}ms` } as React.CSSProperties}
-                >
-                  <Mark className="h-7 w-7 translate-y-1 text-ink-soft" />
-                  <dt className="font-display text-[1.3rem] font-semibold leading-none text-ink">
-                    {v.name}
-                  </dt>
-                  <dd className="col-start-2 text-[0.9375rem] leading-relaxed text-ink-soft sm:col-start-3">
-                    {v.gloss}
-                  </dd>
-                </div>
-              );
-            })}
-          </dl>
         </div>
       </div>
     </section>

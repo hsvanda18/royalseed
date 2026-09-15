@@ -70,13 +70,6 @@ export const fr: Copy = {
     visionTitle: "Vision",
     vision:
       "Devenir une référence nationale et régionale de la production et de l’exportation, capable d’intégrer production, logistique et, à terme, transformation.",
-    valuesTitle: "Valeurs",
-    values: [
-      { name: "Durabilité", gloss: "Le sol et l’eau de Lonhe doivent servir ceux qui viendront après nous." },
-      { name: "Innovation", gloss: "Fertirrigation, matériel végétal certifié, gestion technique." },
-      { name: "Qualité", gloss: "Le marché que nous visons n’accepte pas un fruit moyen." },
-      { name: "Intégrité", gloss: "Nous disons la phase où nous en sommes, pas celle que nous voudrions avoir atteinte." },
-    ],
   },
 
   product: {
@@ -86,19 +79,18 @@ export const fr: Copy = {
       "Nous avons choisi l’avocat parce que nous croyons au potentiel considérable de ce produit sur le marché international, compte tenu notamment de la croissance mondiale de la demande en aliments sains et en produits agricoles d’exportation.",
     photo: {
       alt: "Avocats Hass à la peau verte et granuleuse, suspendus à l’arbre parmi les feuilles.",
-      caption: "Avocat Hass sur l’arbre. Sa peau épaisse et granuleuse lui permet de voyager.",
     },
-    variety: "Variété",
-    varietyNote:
-      "Hass. La variété que le marché d’exportation connaît, transporte et demande par son nom.",
-    place: "Lieu",
-    placeNote:
-      "Lonhe, dans la municipalité de Quibala, province du Cuanza Sul. Une origine, une culture, un bloc.",
+    valuesTitle: "Valeurs",
+    values: [
+      { name: "Durabilité", gloss: "Le sol et l’eau de Lonhe doivent servir ceux qui viendront après nous." },
+      { name: "Innovation", gloss: "Fertirrigation, matériel végétal certifié, gestion technique." },
+      { name: "Qualité", gloss: "Le marché que nous visons n’accepte pas un fruit moyen." },
+      { name: "Intégrité", gloss: "Nous disons la phase où nous en sommes, pas celle que nous voudrions avoir atteinte." },
+    ],
   },
 
   method: {
     title: "Stratégie de production",
-    lede: "Notre modèle de production repose sur six points. Aucun n’est nouveau. Tous sont exigés par les acheteurs.",
     pillars: [
       {
         key: "fertigation",
