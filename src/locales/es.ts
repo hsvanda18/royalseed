@@ -30,10 +30,8 @@ export const es: Copy = {
 
   hero: {
     headline: "500 hectáreas de aguacate Hass.",
-    standfirst:
-      "Son las primeras de una base de tierras de 2.120 hectáreas en Quibala, orientada a la exportación. Todavía no se ha realizado ninguna cosecha.",
     cta: "Contáctenos",
-    ctaSub: "general@royalseed.com",
+    ctaSub: "general@royalseedagro.com",
     photo: {
       alt: "Vista elevada de una plantación de aguacates en hileras regulares.",
       caption: "Plantación de aguacate",
@@ -147,20 +145,12 @@ export const es: Copy = {
     body: "Royalseed Agro se constituyó en febrero de 2025. El proyecto empezó antes.",
     quote:
       "Antes de pasar a la implementación del proyecto, invertimos tiempo en el aprendizaje práctico, el estudio técnico y la comprensión de la cadena de valor del aguacate, tanto en Angola como en referentes internacionales como Kenia.",
-    stops: [
-      { place: "Luanda", note: "Constitución de la empresa · Febrero de 2025" },
-      { place: "Quibala, Cuanza Sul", note: "Reconocimiento del terreno en Lonhe" },
-      { place: "Kenia", note: "Estudio de la cadena de valor del aguacate" },
-    ],
-    galleryTitle: "Viaje de estudio",
-    gallery: [
-      { alt: "Un visitante observa de cerca los frutos de un aguacate en producción.", caption: "Aguacates en producción" },
-      { alt: "Un visitante examina plantones de aguacate en un vivero cubierto.", caption: "Vivero de aguacate" },
-      { alt: "Dos hombres examinan bandejas de plántulas en un invernadero.", caption: "Plántulas en invernadero" },
-      { alt: "Un visitante con bata blanca en una planta de procesamiento.", caption: "Planta de procesamiento" },
-      { alt: "Reunión técnica en una oficina con mapas en la pared.", caption: "Reunión técnica" },
-      { alt: "Apretón de manos entre dos participantes en una plantación de aguacate.", caption: "Encuentro con socios" },
-    ],
+    galleryTitle: "Fotografías",
+    folders: { angola: "Angola", kenya: "Kenia" },
+    photoAlt: "{folder} — fotografía {n} de {total}",
+    prev: "Fotografía anterior",
+    next: "Fotografía siguiente",
+    close: "Cerrar",
   },
 
   people: {
@@ -193,7 +183,7 @@ export const es: Copy = {
       sending: "Enviando…",
       sent: "Mensaje enviado. Responderemos al correo que ha indicado.",
       error: "No se pudo enviar el mensaje. Inténtelo de nuevo o escriba a",
-      subject: "Nuevo mensaje desde royalseed.com",
+      subject: "Nuevo mensaje desde royalseedagro.com",
     },
   },
 

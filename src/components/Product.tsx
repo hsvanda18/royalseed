@@ -3,8 +3,9 @@ import { useInk } from "../lib/hooks";
 import { Photo } from "./Photo";
 
 /**
- * One crop, one place. The photograph carries the variety; the text carries
- * the reason.
+ * One crop, one place. The photograph carries the variety at its own
+ * proportions — never cropped or stretched — held to the screen's height so
+ * it and the text read together.
  */
 export function Product({ copy }: { copy: Copy }) {
   const { ref, inkAttr } = useInk<HTMLElement>();
@@ -15,16 +16,16 @@ export function Product({ copy }: { copy: Copy }) {
       id="product"
       ref={ref}
       {...inkAttr}
-      className="relative z-10 border-y border-[var(--rule-strong)] bg-paper-deep/55 px-5 py-20 sm:px-8 sm:py-24 lg:py-28"
+      className="relative z-10 border-y border-[var(--rule-strong)] bg-paper-deep/55 px-5 py-12 sm:px-8 lg:py-14"
     >
-      <div className="mx-auto grid max-w-[var(--sheet-max)] items-center gap-x-14 gap-y-12 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)]">
+      <div className="mx-auto grid max-w-[var(--sheet-max)] items-center gap-x-14 gap-y-12 lg:grid-cols-[auto_minmax(0,1fr)]">
         <Photo
           {...PHOTOS.product}
           alt={p.photo.alt}
           caption={p.photo.caption}
-          ratioClass="aspect-[3/4]"
-          sizes="26rem"
-          className="ink-in w-full max-w-[26rem] justify-self-center lg:justify-self-start"
+          sizeClass="h-auto w-full"
+          sizes="(min-width: 1024px) 22rem, 100vw"
+          className="ink-in mx-auto w-full max-w-[22rem] lg:mx-0 lg:w-[calc(min(64svh,38rem)*0.5625)]"
         />
 
         <div>

@@ -41,9 +41,9 @@ export const FACTS = {
 export const CONTACT = {
   office: "Tecno Túnel nº20, Vila Estoril, Nova Vida, Luanda, Angola",
   site: "Lonhe, Quibala, Cuanza Sul, Angola",
-  emails: ["general@royalseed.com", "royalseedstore@gmail.com"],
+  emails: ["general@royalseedagro.com", "royalseedstore@gmail.com"],
   phones: ["923 576 824", "923 101 887"],
-  domain: "royalseed.com",
+  domain: "royalseedagro.com",
   /** Planned, not yet created. Reserved on the sheet, never linked. */
   socialPlanned: ["Facebook", "WhatsApp Business", "Instagram"],
   /**
@@ -51,7 +51,7 @@ export const CONTACT = {
    * company's main address. The first submission sends an activation email
    * to that address; nothing is delivered until it is confirmed.
    */
-  formEndpoint: "https://formsubmit.co/ajax/general@royalseed.com",
+  formEndpoint: "https://formsubmit.co/ajax/general@royalseedagro.com",
 } as const;
 
 /* ── Photographs supplied by the client. See tools/prepare-assets.py. ───── */
@@ -64,15 +64,6 @@ export const PHOTOS = {
     { src: "/photos/viveiro-corredor.webp", width: 900, height: 1200 },
     { src: "/photos/viveiro-mudas.webp", width: 900, height: 1200 },
     { src: "/photos/pomar-linha.webp", width: 1200, height: 900 },
-  ],
-  /** Study trip. Order matches `origin.gallery` in each locale. */
-  origin: [
-    { src: "/photos/estudo-pomar.webp", width: 1200, height: 900 },
-    { src: "/photos/estudo-viveiro.webp", width: 1200, height: 1200 },
-    { src: "/photos/estudo-estufa.webp", width: 1200, height: 1200 },
-    { src: "/photos/estudo-processamento.webp", width: 1200, height: 900 },
-    { src: "/photos/estudo-reuniao.webp", width: 1200, height: 900 },
-    { src: "/photos/estudo-parceiros.webp", width: 1200, height: 900 },
   ],
 } as const;
 
@@ -100,7 +91,6 @@ export interface Copy {
 
   hero: {
     headline: string;
-    standfirst: string;
     cta: string;
     ctaSub: string;
     photo: PhotoCopy;
@@ -151,9 +141,13 @@ export interface Copy {
     title: string;
     body: string;
     quote: string;
-    stops: { place: string; note: string }[];
     galleryTitle: string;
-    gallery: [PhotoCopy, PhotoCopy, PhotoCopy, PhotoCopy, PhotoCopy, PhotoCopy];
+    folders: { angola: string; kenya: string };
+    /** Accessible name for each photograph: {folder}, {n}, {total}. */
+    photoAlt: string;
+    prev: string;
+    next: string;
+    close: string;
   };
 
   people: {

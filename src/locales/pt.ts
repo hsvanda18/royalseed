@@ -30,10 +30,8 @@ export const pt: Copy = {
 
   hero: {
     headline: "500 hectares de abacate Hass.",
-    standfirst:
-      "São os primeiros de uma base fundiária de 2.120 hectares no Quibala, orientada para exportação. Nenhuma colheita foi ainda realizada.",
     cta: "Falar connosco",
-    ctaSub: "general@royalseed.com",
+    ctaSub: "general@royalseedagro.com",
     photo: {
       alt: "Vista elevada de um pomar de abacateiros plantados em linhas regulares.",
       caption: "Pomar de abacate",
@@ -143,24 +141,16 @@ export const pt: Copy = {
   },
 
   origin: {
-    title: "A nossa história",
+    title: "Nossa história",
     body: "A Royalseed Agro foi constituída em Fevereiro de 2025. O projecto começou antes disso.",
     quote:
       "Antes de avançarmos para a implementação do projecto, investimos tempo na aprendizagem prática, no estudo técnico e na compreensão da cadeia de valor do abacate, tanto em Angola como em referências internacionais como o Quénia.",
-    stops: [
-      { place: "Luanda", note: "Constituição da empresa · Fevereiro de 2025" },
-      { place: "Quibala, Cuanza Sul", note: "Reconhecimento do terreno em Lonhe" },
-      { place: "Quénia", note: "Estudo da cadeia de valor do abacate" },
-    ],
-    galleryTitle: "Viagem de estudo",
-    gallery: [
-      { alt: "Visitante observa de perto os frutos de um abacateiro em produção.", caption: "Abacateiros em produção" },
-      { alt: "Visitante examina mudas de abacateiro num viveiro coberto.", caption: "Viveiro de abacateiro" },
-      { alt: "Dois homens examinam tabuleiros de plântulas numa estufa.", caption: "Plântulas em estufa" },
-      { alt: "Visitante de bata branca numa unidade de processamento.", caption: "Unidade de processamento" },
-      { alt: "Reunião técnica num escritório com mapas na parede.", caption: "Reunião técnica" },
-      { alt: "Aperto de mão entre dois participantes num pomar de abacate.", caption: "Encontro com parceiros" },
-    ],
+    galleryTitle: "Fotografias",
+    folders: { angola: "Angola", kenya: "Quénia" },
+    photoAlt: "{folder} — fotografia {n} de {total}",
+    prev: "Fotografia anterior",
+    next: "Fotografia seguinte",
+    close: "Fechar",
   },
 
   people: {
@@ -193,7 +183,7 @@ export const pt: Copy = {
       sending: "A enviar…",
       sent: "Mensagem enviada. Responderemos para o e-mail que indicou.",
       error: "Não foi possível enviar a mensagem. Tente de novo ou escreva para",
-      subject: "Nova mensagem do site royalseed.com",
+      subject: "Nova mensagem do site royalseedagro.com",
     },
   },
 

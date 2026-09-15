@@ -45,7 +45,7 @@ export function Workforce({ copy }: { copy: Copy }) {
       id="people"
       ref={ref}
       {...inkAttr}
-      className="relative z-10 border-t border-[var(--rule-strong)] px-5 py-20 sm:px-8 sm:py-24 lg:py-28"
+      className="relative z-10 border-t border-[var(--rule-strong)] px-5 py-12 sm:px-8 lg:py-14"
     >
       <div className="mx-auto max-w-[var(--sheet-max)]">
         <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,30rem)] lg:items-end">
@@ -74,7 +74,7 @@ export function Workforce({ copy }: { copy: Copy }) {
         {/* The tally. */}
         <div
           ref={plotRef}
-          className="wash-in mt-14 border-t border-[var(--rule-strong)] pt-8"
+          className="wash-in mt-8 border-t border-[var(--rule-strong)] pt-6"
           style={{ "--d": "260ms" } as React.CSSProperties}
         >
           <svg
@@ -101,7 +101,7 @@ export function Workforce({ copy }: { copy: Copy }) {
         </div>
 
         {/* Legend and totals. */}
-        <div className="mt-8 grid gap-x-10 gap-y-8 border-t border-[var(--rule-strong)] pt-7 sm:grid-cols-3">
+        <div className="mt-6 grid gap-x-10 gap-y-6 border-t border-[var(--rule-strong)] pt-5 sm:grid-cols-3">
           <Total
             label={w.permanent}
             value={FACTS.workersPermanent}

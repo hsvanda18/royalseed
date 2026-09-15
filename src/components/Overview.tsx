@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { PHOTOS, type Copy } from "../content";
 import { useInk } from "../lib/hooks";
-import { Photo } from "./Photo";
 
 const plateSoft = "text-[color-mix(in_srgb,var(--color-paper)_66%,var(--color-plate))]";
 const plateRule = "border-[color-mix(in_srgb,var(--color-paper)_20%,transparent)]";
 
 /**
- * The first viewport: the headline, the schedule of areas beside it, and the
- * orchard photograph under both. The schedule is the argument — measured
- * ground — so it sits in the title block, not a scroll away.
+ * The first screen: the orchard photograph fills it, the headline and the
+ * schedule of areas sit on it. On large screens everything is held to the
+ * viewport and the photograph gives up its sky first; on phones the three
+ * stack.
  */
 export function Overview({ copy }: { copy: Copy }) {
   const { ref, inkAttr } = useInk<HTMLElement>("-5% 0px -20% 0px");
@@ -20,61 +20,50 @@ export function Overview({ copy }: { copy: Copy }) {
       id="plan"
       ref={ref}
       {...inkAttr}
-      className="relative z-10 px-4 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-28 lg:px-8"
+      className="relative z-10 px-4 pb-10 pt-[5.25rem] sm:px-6 sm:pt-[5.75rem] lg:px-8"
     >
-      <div className="mx-auto max-w-[var(--sheet-max)]">
-        <div className="relative border border-[var(--rule-strong)] bg-paper/70">
-          <CornerMarks />
+      <div className="relative mx-auto flex max-w-[var(--sheet-max)] flex-col border border-[var(--rule-strong)] lg:h-[calc(100svh-7rem)] lg:min-h-[36rem]">
+        <CornerMarks />
 
-          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,34rem)]">
-            <div className="flex flex-col justify-between gap-9 p-6 sm:p-9 lg:p-12">
-              <div>
-                <h1
-                  className="figure-xl ink-in text-[clamp(2.6rem,6vw,4.75rem)] text-ink"
-                  style={{ "--d": "120ms", textWrap: "balance" } as React.CSSProperties}
-                >
-                  {h.headline}
-                </h1>
+        <img
+          src={PHOTOS.overview.src}
+          width={PHOTOS.overview.width}
+          height={PHOTOS.overview.height}
+          alt={h.photo.alt}
+          fetchPriority="high"
+          decoding="async"
+          className="wash-in order-2 block aspect-[4/3] w-full object-cover object-[center_80%] sm:aspect-[16/9] lg:absolute lg:inset-0 lg:order-none lg:aspect-auto lg:h-full"
+        />
 
-                <p
-                  className="prose-sheet ink-in mt-7"
-                  style={{ "--d": "240ms" } as React.CSSProperties}
-                >
-                  {h.standfirst}
-                </p>
-              </div>
+        <div className="relative order-1 grid flex-1 grid-cols-1 lg:order-none lg:grid-cols-[minmax(0,1fr)_minmax(0,34rem)] lg:items-end lg:gap-8 lg:p-8">
+          <div className="bg-paper p-6 sm:p-9 lg:max-w-[36rem] lg:self-end lg:bg-paper/94 lg:p-10 lg:backdrop-blur-[2px]">
+            <h1
+              className="figure-xl ink-in text-[clamp(2.6rem,5.4vw,4.5rem)] text-ink"
+              style={{ "--d": "120ms", textWrap: "balance" } as React.CSSProperties}
+            >
+              {h.headline}
+            </h1>
 
-              <div className="ink-in" style={{ "--d": "360ms" } as React.CSSProperties}>
-                <a
-                  href="#contact"
-                  className="group inline-flex items-baseline gap-3 border-b-2 border-gold pb-1 text-ink transition-colors duration-300 hover:border-gold-ink"
+            <div className="ink-in mt-8" style={{ "--d": "260ms" } as React.CSSProperties}>
+              <a
+                href="#contact"
+                className="group inline-flex items-baseline gap-3 border-b-2 border-gold pb-1 text-ink transition-colors duration-300 hover:border-gold-ink"
+              >
+                <span className="font-display text-[1.35rem] font-semibold">{h.cta}</span>
+                <span
+                  aria-hidden
+                  className="inline-block text-gold-ink transition-transform duration-500 group-hover:translate-x-1.5 rtl:-scale-x-100 rtl:group-hover:-translate-x-1.5"
                 >
-                  <span className="font-display text-[1.35rem] font-semibold">{h.cta}</span>
-                  <span
-                    aria-hidden
-                    className="inline-block text-gold-ink transition-transform duration-500 group-hover:translate-x-1.5 rtl:-scale-x-100 rtl:group-hover:-translate-x-1.5"
-                  >
-                    →
-                  </span>
-                </a>
-                <p className="annot-sm mt-3 text-ink-faint">{h.ctaSub}</p>
-              </div>
+                  →
+                </span>
+              </a>
+              <p className="annot-sm mt-3 text-ink-faint">{h.ctaSub}</p>
             </div>
-
-            <AreaTable copy={copy} />
           </div>
+        </div>
 
-          <Photo
-            {...PHOTOS.overview}
-            alt={h.photo.alt}
-            ratioClass="aspect-[3/2] sm:aspect-[2/1] lg:aspect-[5/2] border-x-0 border-b-0"
-            sizes="(min-width: 88rem) 88rem, 100vw"
-            eager
-            className="wash-in"
-          />
-          <p className="annot-sm border-t border-[var(--rule-strong)] px-6 py-3 text-ink-faint sm:px-9">
-            {h.photo.caption}
-          </p>
+        <div className="relative order-3 lg:absolute lg:inset-y-8 lg:end-8 lg:flex lg:w-[34rem] lg:items-center">
+          <AreaTable copy={copy} />
         </div>
       </div>
     </section>
@@ -90,7 +79,7 @@ function AreaTable({ copy }: { copy: Copy }) {
   const s = copy.schedule;
 
   return (
-    <div className="on-plate bg-plate p-6 text-paper sm:p-8">
+    <div className="on-plate w-full bg-plate p-6 text-paper sm:p-8 lg:bg-plate/95 lg:p-7">
       <h2 className="annot-sm ink-in text-gold-bright" style={{ "--d": "160ms" } as React.CSSProperties}>
         {s.title}
       </h2>

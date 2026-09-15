@@ -14,13 +14,13 @@ Bilingual PT-PT / EN with a header language selector, both languages authored in
 
 ## Users
 
-Three audiences arrive at royalseed.com, in this order of commercial weight:
+Three audiences arrive at royalseedagro.com, in this order of commercial weight:
 
 1. **International buyers, importers and trading desks** (Europe, Middle East, South Africa) assessing whether an unknown Angolan origin is worth a conversation. They read on desktop, they are sceptical, and they are looking for scale, varietal, timing and seriousness — not brand poetry. They speak English.
 2. **Institutional counterparties in Angola** — banks, development finance, agriculture ministry contacts, insurers, potential JV partners. They need the project to look real and governed. They read in Portuguese.
 3. **Candidates and local partners in Cuanza Sul and Luanda** — technicians, agronomists, suppliers, and the seasonal workforce's supply chain. They need the address, the phone, and evidence the operation exists.
 
-The site is a credential, not a shop. Nobody buys avocados through this page; they decide whether to email `general@royalseed.com`.
+The site is a credential, not a shop. Nobody buys avocados through this page; they decide whether to email `general@royalseedagro.com`.
 
 ## Product Purpose
 
@@ -39,8 +39,8 @@ What a neighbouring company could not truthfully copy: the specific land base an
 - **Company:** Royalseed Agro, Lda. Founded February 2025.
 - **Head office:** Tecno Túnel nº20, Vila Estoril, Nova Vida, Luanda, Angola.
 - **Project site:** Lonhe, Quibala, Cuanza Sul, Angola.
-- **Contact:** royalseedstore@gmail.com · general@royalseed.com · 923 576 824 / 923 101 887.
-- **Domain:** royalseed.com.
+- **Contact:** royalseedstore@gmail.com · general@royalseedagro.com · 923 576 824 / 923 101 887.
+- **Domain:** royalseedagro.com.
 - **Social:** Facebook, WhatsApp Business and Instagram accounts under the name "Royalseed Agro" are *planned, not yet created*. The site must reserve space without linking to accounts that do not exist.
 
 ## Capabilities and Constraints

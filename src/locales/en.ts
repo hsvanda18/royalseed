@@ -30,10 +30,8 @@ export const en: Copy = {
 
   hero: {
     headline: "500 hectares of Hass avocado.",
-    standfirst:
-      "They are the first of a 2,120-hectare land base in Quibala, oriented toward export. No harvest has yet been taken.",
     cta: "Talk to us",
-    ctaSub: "general@royalseed.com",
+    ctaSub: "general@royalseedagro.com",
     photo: {
       alt: "Elevated view of an avocado orchard planted in regular rows.",
       caption: "Avocado orchard",
@@ -147,20 +145,12 @@ export const en: Copy = {
     body: "Royalseed Agro was incorporated in February 2025. The project began before that.",
     quote:
       "Before moving to implementation, we invested time in practical learning, technical study and understanding the avocado value chain, both in Angola and at international references such as Kenya.",
-    stops: [
-      { place: "Luanda", note: "Company incorporated · February 2025" },
-      { place: "Quibala, Cuanza Sul", note: "Ground survey at Lonhe" },
-      { place: "Kenya", note: "Study of the avocado value chain" },
-    ],
-    galleryTitle: "Study trip",
-    gallery: [
-      { alt: "A visitor looks closely at the fruit on a bearing avocado tree.", caption: "Bearing avocado trees" },
-      { alt: "A visitor examines avocado seedlings in a covered nursery.", caption: "Avocado nursery" },
-      { alt: "Two men examine trays of seedlings in a greenhouse.", caption: "Greenhouse seedlings" },
-      { alt: "A visitor in a white coat at a processing plant.", caption: "Processing plant" },
-      { alt: "A technical meeting in an office with maps on the wall.", caption: "Technical meeting" },
-      { alt: "Two participants shake hands in an avocado orchard.", caption: "Meeting partners" },
-    ],
+    galleryTitle: "Photographs",
+    folders: { angola: "Angola", kenya: "Kenya" },
+    photoAlt: "{folder} — photograph {n} of {total}",
+    prev: "Previous photograph",
+    next: "Next photograph",
+    close: "Close",
   },
 
   people: {
@@ -193,7 +183,7 @@ export const en: Copy = {
       sending: "Sending…",
       sent: "Message sent. We will reply to the email address you gave.",
       error: "The message could not be sent. Try again or write to",
-      subject: "New message from royalseed.com",
+      subject: "New message from royalseedagro.com",
     },
   },
 

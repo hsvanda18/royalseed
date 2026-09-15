@@ -30,10 +30,8 @@ export const fr: Copy = {
 
   hero: {
     headline: "500 hectares d’avocat Hass.",
-    standfirst:
-      "Ce sont les premiers d’une assise foncière de 2 120 hectares à Quibala, tournée vers l’exportation. Aucune récolte n’a encore été réalisée.",
     cta: "Nous contacter",
-    ctaSub: "general@royalseed.com",
+    ctaSub: "general@royalseedagro.com",
     photo: {
       alt: "Vue en hauteur d’un verger d’avocatiers plantés en rangs réguliers.",
       caption: "Verger d’avocatiers",
@@ -147,20 +145,12 @@ export const fr: Copy = {
     body: "Royalseed Agro a été constituée en février 2025. Le projet a commencé bien avant.",
     quote:
       "Avant de passer à la mise en œuvre du projet, nous avons investi du temps dans l’apprentissage pratique, l’étude technique et la compréhension de la chaîne de valeur de l’avocat, en Angola comme auprès de références internationales telles que le Kenya.",
-    stops: [
-      { place: "Luanda", note: "Constitution de la société · Février 2025" },
-      { place: "Quibala, Cuanza Sul", note: "Reconnaissance du terrain à Lonhe" },
-      { place: "Kenya", note: "Étude de la chaîne de valeur de l’avocat" },
-    ],
-    galleryTitle: "Voyage d’étude",
-    gallery: [
-      { alt: "Un visiteur observe de près les fruits d’un avocatier en production.", caption: "Avocatiers en production" },
-      { alt: "Un visiteur examine des plants d’avocatier dans une pépinière couverte.", caption: "Pépinière d’avocatiers" },
-      { alt: "Deux hommes examinent des plateaux de semis dans une serre.", caption: "Semis sous serre" },
-      { alt: "Un visiteur en blouse blanche dans une unité de transformation.", caption: "Unité de transformation" },
-      { alt: "Réunion technique dans un bureau aux murs couverts de cartes.", caption: "Réunion technique" },
-      { alt: "Poignée de main entre deux participants dans un verger d’avocatiers.", caption: "Rencontre avec des partenaires" },
-    ],
+    galleryTitle: "Photos",
+    folders: { angola: "Angola", kenya: "Kenya" },
+    photoAlt: "{folder} — photo {n} sur {total}",
+    prev: "Photo précédente",
+    next: "Photo suivante",
+    close: "Fermer",
   },
 
   people: {
@@ -193,7 +183,7 @@ export const fr: Copy = {
       sending: "Envoi…",
       sent: "Message envoyé. Nous répondrons à l’adresse e-mail indiquée.",
       error: "Le message n’a pas pu être envoyé. Réessayez ou écrivez à",
-      subject: "Nouveau message du site royalseed.com",
+      subject: "Nouveau message du site royalseedagro.com",
     },
   },
 

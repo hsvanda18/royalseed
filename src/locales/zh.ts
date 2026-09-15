@@ -30,10 +30,8 @@ export const zh: Copy = {
 
   hero: {
     headline: "500 公顷哈斯牛油果。",
-    standfirst:
-      "这是基巴拉 2,120 公顷土地储备中率先开发的部分，以出口为导向。目前尚未进行任何采收。",
     cta: "联系我们",
-    ctaSub: "general@royalseed.com",
+    ctaSub: "general@royalseedagro.com",
     photo: {
       alt: "俯瞰按规则行列种植的牛油果果园。",
       caption: "牛油果果园",
@@ -147,20 +145,12 @@ export const zh: Copy = {
     body: "Royalseed Agro 成立于 2025 年 2 月，而项目的起步更早。",
     quote:
       "在推进项目实施之前，我们投入时间进行实践学习和技术研究，深入了解牛油果价值链——既包括安哥拉本地，也包括肯尼亚等国际标杆。",
-    stops: [
-      { place: "罗安达", note: "公司成立 · 2025 年 2 月" },
-      { place: "宽扎南省基巴拉", note: "隆赫土地实地勘察" },
-      { place: "肯尼亚", note: "牛油果价值链考察" },
-    ],
-    galleryTitle: "考察之行",
-    gallery: [
-      { alt: "一名访客近距离观察结果牛油果树上的果实。", caption: "结果期的牛油果树" },
-      { alt: "一名访客在遮阴苗圃中查看牛油果苗。", caption: "牛油果苗圃" },
-      { alt: "两名男子在温室中查看育苗盘。", caption: "温室育苗" },
-      { alt: "身穿白大褂的访客在加工厂内。", caption: "加工厂" },
-      { alt: "在挂有地图的办公室里召开技术会议。", caption: "技术会议" },
-      { alt: "两名参与者在牛油果园中握手。", caption: "与合作伙伴会面" },
-    ],
+    galleryTitle: "照片",
+    folders: { angola: "安哥拉", kenya: "肯尼亚" },
+    photoAlt: "{folder} — 第 {n} 张，共 {total} 张",
+    prev: "上一张",
+    next: "下一张",
+    close: "关闭",
   },
 
   people: {
@@ -193,7 +183,7 @@ export const zh: Copy = {
       sending: "正在发送…",
       sent: "留言已发送。我们将回复至您填写的邮箱。",
       error: "留言发送失败。请重试，或发送邮件至",
-      subject: "来自 royalseed.com 的新留言",
+      subject: "来自 royalseedagro.com 的新留言",
     },
   },
 

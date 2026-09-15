@@ -1,7 +1,8 @@
 /**
  * A supplied photograph, set on the sheet with a ruled edge and a lettered
- * caption. `ratioClass` crops with object-cover; the intrinsic size is still
- * passed so the browser reserves space before the file arrives.
+ * caption. `sizeClass` sets the drawn box (an aspect ratio or a height) and
+ * the image fills it with object-cover; the intrinsic size is still passed
+ * so the browser reserves space before the file arrives.
  */
 export function Photo({
   src,
@@ -9,7 +10,7 @@ export function Photo({
   height,
   alt,
   caption,
-  ratioClass = "aspect-[4/3]",
+  sizeClass = "h-auto w-full aspect-[4/3]",
   className = "",
   eager = false,
   sizes,
@@ -19,7 +20,7 @@ export function Photo({
   height: number;
   alt: string;
   caption?: string;
-  ratioClass?: string;
+  sizeClass?: string;
   className?: string;
   eager?: boolean;
   sizes?: string;
@@ -34,7 +35,7 @@ export function Photo({
         sizes={sizes}
         loading={eager ? "eager" : "lazy"}
         decoding="async"
-        className={`block h-auto w-full border border-[var(--rule-strong)] bg-paper-deep object-cover ${ratioClass}`}
+        className={`block border border-[var(--rule-strong)] bg-paper-deep object-cover ${sizeClass}`}
       />
       {caption && (
         <figcaption className="annot-sm mt-2.5 text-ink-faint">{caption}</figcaption>
