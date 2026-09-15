@@ -68,8 +68,8 @@ export const PHOTOS = {
   /** Generated illustrations supplied by the client, shown labelled as such. */
   workforce: [
     { src: "/photos/ilustracao-plantacao.webp", width: 1200, height: 555 },
-    { src: "/photos/ilustracao-colheita.webp", width: 1200, height: 482 },
     { src: "/photos/ilustracao-pulverizacao.webp", width: 1200, height: 480 },
+    { src: "/photos/ilustracao-colheita.webp", width: 1200, height: 482 },
   ],
 } as const;
 

@@ -157,8 +157,8 @@ export const es: Copy = {
     keySeasonal: "Trabajador temporero",
     illustrations: [
       "Ilustración: trabajadores con uniforme verde plantan plantones de aguacate junto a líneas de riego por goteo.",
-      "Ilustración: un trabajador con uniforme verde revisa aguacates en el árbol.",
       "Ilustración: un trabajador con uniforme verde fumiga aguacates con una mochila pulverizadora.",
+      "Ilustración: un trabajador con uniforme verde revisa aguacates en el árbol.",
     ],
     illustrationNote: "Imágenes ilustrativas",
   },

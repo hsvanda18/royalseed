@@ -157,8 +157,8 @@ export const fr: Copy = {
     keySeasonal: "Employé saisonnier",
     illustrations: [
       "Illustration : des ouvriers en tenue verte plantent des plants d’avocatier le long de lignes de goutte-à-goutte.",
-      "Illustration : un ouvrier en tenue verte examine des avocats sur l’arbre.",
       "Illustration : un ouvrier en tenue verte pulvérise des avocatiers avec un pulvérisateur à dos.",
+      "Illustration : un ouvrier en tenue verte examine des avocats sur l’arbre.",
     ],
     illustrationNote: "Images d’illustration",
   },

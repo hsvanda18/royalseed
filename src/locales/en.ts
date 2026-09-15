@@ -157,8 +157,8 @@ export const en: Copy = {
     keySeasonal: "Seasonal employee",
     illustrations: [
       "Illustration: workers in green uniforms plant avocado seedlings beside drip irrigation lines.",
-      "Illustration: a worker in a green uniform checks avocados on the tree.",
       "Illustration: a worker in a green uniform sprays avocado trees with a backpack sprayer.",
+      "Illustration: a worker in a green uniform checks avocados on the tree.",
     ],
     illustrationNote: "Illustrative images",
   },

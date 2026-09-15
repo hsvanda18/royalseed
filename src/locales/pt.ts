@@ -157,8 +157,8 @@ export const pt: Copy = {
     keySeasonal: "Colaborador sazonal",
     illustrations: [
       "Ilustração: trabalhadores de farda verde plantam mudas de abacateiro junto a linhas de rega gota-a-gota.",
-      "Ilustração: trabalhador de farda verde verifica frutos de abacate na árvore.",
       "Ilustração: trabalhador de farda verde pulveriza abacateiros com um pulverizador de dorso.",
+      "Ilustração: trabalhador de farda verde verifica frutos de abacate na árvore.",
     ],
     illustrationNote: "Imagens ilustrativas",
   },
