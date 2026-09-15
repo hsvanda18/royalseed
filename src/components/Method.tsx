@@ -48,29 +48,32 @@ export function Method({ copy }: { copy: Copy }) {
           ))}
         </ol>
 
-        {/* One common height for the row, drawn from the screen: the nursery
-            frames are portrait and the orchard is landscape, so each is
-            cropped from its edges, the orchard from its sky. */}
-        <div className="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-[1fr_1fr_2fr]">
-          {PHOTOS.method.map((photo, i) => (
-            <Photo
-              key={photo.src}
-              {...photo}
-              alt={m.photos[i].alt}
-              caption={m.photos[i].caption}
-              sizeClass={`w-full h-[clamp(11rem,28svh,18rem)] ${i === 2 ? "object-[center_85%]" : ""}`}
-              sizes={i === 2 ? "(min-width: 1024px) 44rem, 100vw" : "(min-width: 1024px) 22rem, 50vw"}
-              className={`ink-in ${i === 2 ? "col-span-2 lg:col-span-1" : ""}`}
-            />
-          ))}
-        </div>
+        {/* The photographs are shown whole — never cropped. From lg they share
+            one height drawn from the screen, each frame as wide as its own
+            ratio makes it, and the closing line takes the width left over. */}
+        <div className="mt-8 grid items-center gap-x-10 gap-y-6 lg:grid-cols-[auto_minmax(0,1fr)]">
+          <div className="grid grid-cols-2 items-start gap-3 lg:flex">
+            {PHOTOS.method.map((photo, i) => (
+              <Photo
+                key={photo.src}
+                {...photo}
+                alt={m.photos[i].alt}
+                caption={m.photos[i].caption}
+                sizeClass="h-auto w-full"
+                sizes="(min-width: 1024px) 28rem, 50vw"
+                className={`ink-in lg:w-[calc(clamp(11rem,36svh,22rem)*var(--ratio))] lg:shrink-0 ${i === 2 ? "col-span-2" : ""}`}
+                style={{ "--ratio": photo.width / photo.height } as React.CSSProperties}
+              />
+            ))}
+          </div>
 
-        <p
-          className="ink-in mt-7 max-w-[44rem] border-t-2 border-ink pt-4 font-display text-[clamp(1.1rem,1.8vw,1.35rem)] leading-[1.4] text-ink"
-          style={{ "--d": "600ms" } as React.CSSProperties}
-        >
-          {m.closing}
-        </p>
+          <p
+            className="ink-in max-w-[36rem] border-t-2 border-ink pt-4 font-display text-[clamp(1.1rem,1.8vw,1.35rem)] leading-[1.4] text-ink"
+            style={{ "--d": "600ms" } as React.CSSProperties}
+          >
+            {m.closing}
+          </p>
+        </div>
       </div>
     </section>
   );

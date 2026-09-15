@@ -41,15 +41,15 @@ export const pt: Copy = {
   schedule: {
     title: "Quadro de áreas",
     rows: [
-      { label: "Base fundiária", value: "2.120", unit: "hectares", note: "Terreno detido, Lonhe, Quibala" },
-      { label: "Área de cultivo — 1.ª fase", value: "500", unit: "hectares", note: "23,6% da base fundiária" },
-      { label: "Densidade de plantação", value: "231.000", unit: "plantas", note: "Abacate Hass" },
-      { label: "Força de trabalho na colheita", value: "710", unit: "colaboradores", note: "350 permanentes · 360 sazonais" },
+      { label: "Base fundiária", value: "2.120", unit: "hectares" },
+      { label: "Área de cultivo — 1.ª fase", value: "500", unit: "hectares" },
+      { label: "Densidade de plantação", value: "231.000", unit: "plantas" },
+      { label: "Força de trabalho na colheita", value: "710", unit: "colaboradores" },
     ],
     derivedTitle: "Valores derivados",
     derived: [
-      { label: "Plantas por hectare", value: "462", note: "231.000 ÷ 500" },
-      { label: "Área por planta", value: "21,6 m²", note: "10.000 ÷ 462" },
+      { label: "Plantas por hectare", value: "462" },
+      { label: "Área por planta", value: "21,6 m²" },
     ],
     estimateFlag: "Estimativa",
     estimateReveal: "Ver a produção estimada",

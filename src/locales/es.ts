@@ -41,15 +41,15 @@ export const es: Copy = {
   schedule: {
     title: "Cuadro de superficies",
     rows: [
-      { label: "Base de tierras", value: "2.120", unit: "hectáreas", note: "Terreno en propiedad, Lonhe, Quibala" },
-      { label: "Superficie de cultivo — 1.ª fase", value: "500", unit: "hectáreas", note: "23,6 % de la base de tierras" },
-      { label: "Densidad de plantación", value: "231.000", unit: "plantas", note: "Aguacate Hass" },
-      { label: "Mano de obra en la cosecha", value: "710", unit: "personas", note: "350 fijos · 360 temporeros" },
+      { label: "Base de tierras", value: "2.120", unit: "hectáreas" },
+      { label: "Superficie de cultivo — 1.ª fase", value: "500", unit: "hectáreas" },
+      { label: "Densidad de plantación", value: "231.000", unit: "plantas" },
+      { label: "Mano de obra en la cosecha", value: "710", unit: "personas" },
     ],
     derivedTitle: "Valores derivados",
     derived: [
-      { label: "Plantas por hectárea", value: "462", note: "231.000 ÷ 500" },
-      { label: "Superficie por planta", value: "21,6 m²", note: "10.000 ÷ 462" },
+      { label: "Plantas por hectárea", value: "462" },
+      { label: "Superficie por planta", value: "21,6 m²" },
     ],
     estimateFlag: "Estimación",
     estimateReveal: "Ver la producción estimada",

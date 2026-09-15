@@ -41,15 +41,15 @@ export const fr: Copy = {
   schedule: {
     title: "Tableau des surfaces",
     rows: [
-      { label: "Assise foncière", value: "2 120", unit: "hectares", note: "Terrain détenu, Lonhe, Quibala" },
-      { label: "Surface cultivée — 1re phase", value: "500", unit: "hectares", note: "23,6 % de l’assise foncière" },
-      { label: "Densité de plantation", value: "231 000", unit: "plants", note: "Avocat Hass" },
-      { label: "Main-d’œuvre à la récolte", value: "710", unit: "personnes", note: "350 permanents · 360 saisonniers" },
+      { label: "Assise foncière", value: "2 120", unit: "hectares" },
+      { label: "Surface cultivée — 1re phase", value: "500", unit: "hectares" },
+      { label: "Densité de plantation", value: "231 000", unit: "plants" },
+      { label: "Main-d’œuvre à la récolte", value: "710", unit: "personnes" },
     ],
     derivedTitle: "Valeurs dérivées",
     derived: [
-      { label: "Plants par hectare", value: "462", note: "231 000 ÷ 500" },
-      { label: "Surface par plant", value: "21,6 m²", note: "10 000 ÷ 462" },
+      { label: "Plants par hectare", value: "462" },
+      { label: "Surface par plant", value: "21,6 m²" },
     ],
     estimateFlag: "Estimation",
     estimateReveal: "Voir la production estimée",

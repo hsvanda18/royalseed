@@ -41,15 +41,15 @@ export const en: Copy = {
   schedule: {
     title: "Schedule of areas",
     rows: [
-      { label: "Land base", value: "2,120", unit: "hectares", note: "Land held, Lonhe, Quibala" },
-      { label: "Planted area — phase one", value: "500", unit: "hectares", note: "23.6% of the land base" },
-      { label: "Planting density", value: "231,000", unit: "plants", note: "Hass avocado" },
-      { label: "Harvest workforce", value: "710", unit: "people", note: "350 permanent · 360 seasonal" },
+      { label: "Land base", value: "2,120", unit: "hectares" },
+      { label: "Planted area — phase one", value: "500", unit: "hectares" },
+      { label: "Planting density", value: "231,000", unit: "plants" },
+      { label: "Harvest workforce", value: "710", unit: "people" },
     ],
     derivedTitle: "Derived figures",
     derived: [
-      { label: "Plants per hectare", value: "462", note: "231,000 ÷ 500" },
-      { label: "Area per plant", value: "21.6 m²", note: "10,000 ÷ 462" },
+      { label: "Plants per hectare", value: "462" },
+      { label: "Area per plant", value: "21.6 m²" },
     ],
     estimateFlag: "Estimate",
     estimateReveal: "Show the estimated production",

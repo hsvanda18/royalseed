@@ -41,15 +41,15 @@ export const zh: Copy = {
   schedule: {
     title: "面积一览",
     rows: [
-      { label: "土地储备", value: "2,120", unit: "公顷", note: "自有土地，基巴拉隆赫" },
-      { label: "种植面积 — 一期", value: "500", unit: "公顷", note: "占土地储备的 23.6%" },
-      { label: "种植密度", value: "231,000", unit: "株", note: "哈斯牛油果" },
-      { label: "采收期劳动力", value: "710", unit: "人", note: "长期 350 人 · 季节性 360 人" },
+      { label: "土地储备", value: "2,120", unit: "公顷" },
+      { label: "种植面积 — 一期", value: "500", unit: "公顷" },
+      { label: "种植密度", value: "231,000", unit: "株" },
+      { label: "采收期劳动力", value: "710", unit: "人" },
     ],
     derivedTitle: "推算数值",
     derived: [
-      { label: "每公顷株数", value: "462", note: "231,000 ÷ 500" },
-      { label: "每株占地", value: "21.6 m²", note: "10,000 ÷ 462" },
+      { label: "每公顷株数", value: "462" },
+      { label: "每株占地", value: "21.6 m²" },
     ],
     estimateFlag: "估算",
     estimateReveal: "查看估算产量",

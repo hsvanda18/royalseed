@@ -12,6 +12,7 @@ export function Photo({
   caption,
   sizeClass = "h-auto w-full aspect-[4/3]",
   className = "",
+  style,
   eager = false,
   sizes,
 }: {
@@ -22,11 +23,12 @@ export function Photo({
   caption?: string;
   sizeClass?: string;
   className?: string;
+  style?: React.CSSProperties;
   eager?: boolean;
   sizes?: string;
 }) {
   return (
-    <figure className={`m-0 ${className}`}>
+    <figure className={`m-0 ${className}`} style={style}>
       <img
         src={src}
         width={width}

@@ -98,9 +98,9 @@ export interface Copy {
 
   schedule: {
     title: string;
-    rows: { label: string; value: string; unit: string; note: string }[];
+    rows: { label: string; value: string; unit: string }[];
     derivedTitle: string;
-    derived: { label: string; value: string; note: string }[];
+    derived: { label: string; value: string }[];
     estimateFlag: string;
     estimateReveal: string;
     estimateValue: string;
