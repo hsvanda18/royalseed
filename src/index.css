@@ -56,20 +56,22 @@
 }
 
 /* ── The plan's inks ──────────────────────────────────────────────────────
-   Survey ink green dominates. Gold is never decoration: it marks a control
-   or a measured value, and nothing else on the sheet.                      */
+   Survey ink green dominates, softened one step off the near-black of the
+   logotype at the client's request; every tone still clears WCAG AA on
+   paper (ink 9.0:1, soft 5.4:1, faint 5.0:1). Gold is never decoration: it
+   marks a control or a measured value, and nothing else on the sheet.      */
 
 @theme {
   --color-paper: #f6f2e8;
   --color-paper-deep: #ece5d4;
   --color-paper-edge: #e2d9c3;
 
-  --color-ink: #1a3f1c;
-  --color-ink-soft: #40603f;
-  --color-ink-faint: #556d52;
+  --color-ink: #264a27;
+  --color-ink-soft: #4c6a4a;
+  --color-ink-faint: #586d55;
 
-  --color-plate: #12300f;
-  --color-plate-soft: #1c4419;
+  --color-plate: #1d3c1a;
+  --color-plate-soft: #2a5026;
 
   --color-gold: #c9a227;
   --color-gold-bright: #e0b53d;
