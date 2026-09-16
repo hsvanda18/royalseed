@@ -147,7 +147,7 @@ export const en: Copy = {
 
   people: {
     title: "Workforce",
-    lede: "710 people at harvest. Every mark below is one of them.",
+    lede: "710 people at harvest.",
     permanent: "Permanent",
     seasonal: "Seasonal",
     harvest: "Total at harvest",

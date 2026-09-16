@@ -119,25 +119,3 @@ export function useActiveRegion(ids: string[]) {
 
   return active;
 }
-
-/** Column count for the workforce tally, derived from the drawn width. */
-export function useTallyColumns(ref: React.RefObject<HTMLElement | null>) {
-  const [cols, setCols] = useState(40);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node || typeof ResizeObserver === "undefined") return;
-
-    const ro = new ResizeObserver(([entry]) => {
-      const w = entry.contentRect.width;
-      // ~13px per mark keeps a permanent mark and a seasonal mark
-      // distinguishable at arm's length on a phone. Wide screens take more
-      // columns rather than more rows, so the tally stays within one screen.
-      setCols(Math.max(14, Math.min(96, Math.floor(w / 13))));
-    });
-    ro.observe(node);
-    return () => ro.disconnect();
-  }, [ref]);
-
-  return cols;
-}

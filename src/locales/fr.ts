@@ -147,7 +147,7 @@ export const fr: Copy = {
 
   people: {
     title: "Main-d’œuvre",
-    lede: "710 personnes en période de récolte. Chaque marque ci-dessous en représente une.",
+    lede: "710 personnes en période de récolte.",
     permanent: "Permanents",
     seasonal: "Saisonniers",
     harvest: "Total à la récolte",

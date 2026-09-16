@@ -147,7 +147,7 @@ export const zh: Copy = {
 
   people: {
     title: "劳动力",
-    lede: "采收季节共 710 人。下方每一个标记代表其中一人。",
+    lede: "采收季节共 710 人。",
     permanent: "长期员工",
     seasonal: "季节性员工",
     harvest: "采收期合计",

@@ -147,7 +147,7 @@ export const pt: Copy = {
 
   people: {
     title: "Força de trabalho",
-    lede: "710 pessoas na época de colheita. Cada marca abaixo é uma delas.",
+    lede: "710 pessoas na época de colheita.",
     permanent: "Permanentes",
     seasonal: "Sazonais",
     harvest: "Total na colheita",

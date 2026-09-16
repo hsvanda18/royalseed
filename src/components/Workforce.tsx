@@ -1,47 +1,20 @@
-import { useMemo, useRef } from "react";
 import { FACTS, PHOTOS, type Copy } from "../content";
-import { useInk, useTallyColumns } from "../lib/hooks";
+import { useInk } from "../lib/hooks";
 
 /** Sum of width ÷ height across the illustration row. */
 const ROW_RATIO = PHOTOS.workforce.reduce((sum, p) => sum + p.width / p.height, 0);
-
-const CELL_W = 13;
-const CELL_H = 17;
 
 /** One sapling mark, drawn at the cell's origin. */
 const mark = (x: number, y: number) =>
   `M${x} ${y}v-9.5M${x} ${y - 6.5}l-3.2-3.2M${x} ${y - 6.5}l3.2-3.2`;
 
-function tally(from: number, count: number, cols: number) {
-  let d = "";
-  for (let i = 0; i < count; i++) {
-    const n = from + i;
-    const col = n % cols;
-    const row = Math.floor(n / cols);
-    d += mark(col * CELL_W + CELL_W / 2, row * CELL_H + CELL_H - 2);
-  }
-  return d;
-}
-
 /**
- * 710 people, drawn one at a time. The figure is the whole point of the
- * region: a workforce printed as "710" is a statistic, and a workforce
- * printed as 710 marks is a payroll you can see the size of.
+ * 710 people at harvest, held as three figures and the company's own
+ * illustrations of the work.
  */
 export function Workforce({ copy }: { copy: Copy }) {
   const { ref, inkAttr } = useInk<HTMLElement>();
-  const plotRef = useRef<HTMLDivElement>(null);
-  const cols = useTallyColumns(plotRef);
   const w = copy.people;
-
-  const { permanentD, seasonalD, height } = useMemo(() => {
-    const rows = Math.ceil(FACTS.workersHarvest / cols);
-    return {
-      permanentD: tally(0, FACTS.workersPermanent, cols),
-      seasonalD: tally(FACTS.workersPermanent, FACTS.workersSeasonal, cols),
-      height: rows * CELL_H,
-    };
-  }, [cols]);
 
   return (
     <section
@@ -74,37 +47,8 @@ export function Workforce({ copy }: { copy: Copy }) {
           </p>
         </div>
 
-        {/* The tally. */}
-        <div
-          ref={plotRef}
-          className="wash-in mt-8 border-t border-[var(--rule-strong)] pt-6"
-          style={{ "--d": "260ms" } as React.CSSProperties}
-        >
-          <svg
-            viewBox={`0 0 ${cols * CELL_W} ${height}`}
-            className="block w-full"
-            role="img"
-            aria-label={`${w.harvest}: ${FACTS.workersHarvest}. ${w.permanent}: ${FACTS.workersPermanent}. ${w.seasonal}: ${FACTS.workersSeasonal}.`}
-          >
-            <path
-              d={permanentD}
-              stroke="var(--color-ink)"
-              strokeWidth="1.25"
-              strokeLinecap="round"
-              fill="none"
-            />
-            <path
-              d={seasonalD}
-              stroke="var(--color-terra)"
-              strokeWidth="1.25"
-              strokeLinecap="round"
-              fill="none"
-            />
-          </svg>
-        </div>
-
         {/* Legend and totals. */}
-        <div className="mt-6 grid gap-x-10 gap-y-6 border-t border-[var(--rule-strong)] pt-5 sm:grid-cols-3">
+        <div className="mt-8 grid gap-x-10 gap-y-6 border-t border-[var(--rule-strong)] pt-6 sm:grid-cols-3">
           <Total
             label={w.permanent}
             value={FACTS.workersPermanent}

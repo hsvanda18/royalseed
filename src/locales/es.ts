@@ -147,7 +147,7 @@ export const es: Copy = {
 
   people: {
     title: "Mano de obra",
-    lede: "710 personas en la época de cosecha. Cada marca de abajo es una de ellas.",
+    lede: "710 personas en la época de cosecha.",
     permanent: "Fijos",
     seasonal: "Temporeros",
     harvest: "Total en la cosecha",
