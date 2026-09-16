@@ -46,13 +46,7 @@ export const ar: Copy = {
       { label: "كثافة الزراعة", value: "231,000", unit: "شتلة" },
       { label: "القوى العاملة في موسم الحصاد", value: "710", unit: "عامل" },
     ],
-    derivedTitle: "قيم مشتقة",
-    derived: [
-      { label: "شتلة لكل هكتار", value: "462" },
-      { label: "متر مربع لكل شتلة", value: "21.6" },
-    ],
     estimateFlag: "تقدير",
-    estimateReveal: "عرض الإنتاج المقدَّر",
     estimateValue: "23,000",
     estimateUnit: "طن",
     estimateBody:

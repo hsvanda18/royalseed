@@ -46,13 +46,7 @@ export const zh: Copy = {
       { label: "种植密度", value: "231,000", unit: "株" },
       { label: "采收期劳动力", value: "710", unit: "人" },
     ],
-    derivedTitle: "推算数值",
-    derived: [
-      { label: "每公顷株数", value: "462" },
-      { label: "每株占地", value: "21.6 m²" },
-    ],
     estimateFlag: "估算",
-    estimateReveal: "查看估算产量",
     estimateValue: "23,000",
     estimateUnit: "吨",
     estimateBody:

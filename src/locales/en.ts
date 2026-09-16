@@ -46,13 +46,7 @@ export const en: Copy = {
       { label: "Planting density", value: "231,000", unit: "plants" },
       { label: "Harvest workforce", value: "710", unit: "people" },
     ],
-    derivedTitle: "Derived figures",
-    derived: [
-      { label: "Plants per hectare", value: "462" },
-      { label: "Area per plant", value: "21.6 m²" },
-    ],
     estimateFlag: "Estimate",
-    estimateReveal: "Show the estimated production",
     estimateValue: "23,000",
     estimateUnit: "tonnes",
     estimateBody:

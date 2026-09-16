@@ -105,10 +105,7 @@ export interface Copy {
   schedule: {
     title: string;
     rows: { label: string; value: string; unit: string }[];
-    derivedTitle: string;
-    derived: { label: string; value: string }[];
     estimateFlag: string;
-    estimateReveal: string;
     estimateValue: string;
     estimateUnit: string;
     estimateBody: string;

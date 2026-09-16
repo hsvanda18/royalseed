@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { PHOTOS, type Copy } from "../content";
 import { useInk } from "../lib/hooks";
 
@@ -73,41 +72,21 @@ export function Overview({ copy }: { copy: Copy }) {
 
 /**
  * The schedule of areas, reduced to four figures on a 2 × 2 key so it holds
- * the same height as the headline card. The ground is survey green so the
+ * the same height as the headline card. The estimated production, the one
+ * number the company does not hold a measurement for, closes the block at
+ * its own scale — larger than the four measured figures above it, because
+ * it is the number a buyer reads this card for, still carrying the word
+ * "estimate" wherever it appears. The ground is survey green so the
  * figures can be set in gold and still clear contrast.
  */
 function AreaTable({ copy }: { copy: Copy }) {
-  const [revealed, setRevealed] = useState(false);
   const s = copy.schedule;
 
   return (
     <div className="on-plate flex w-full flex-col justify-between bg-plate p-6 text-paper sm:p-7 lg:bg-plate/95">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
-        <h2 className="annot-sm ink-in text-gold-bright" style={{ "--d": "160ms" } as React.CSSProperties}>
-          {s.title}
-        </h2>
-
-        {/* The one estimate the company owns waits behind its qualifier. */}
-        {revealed ? (
-          <p className="annot-sm text-gold-bright">
-            {s.estimateFlag}:{" "}
-            <span className="font-display text-[1.05rem] font-semibold normal-case tracking-normal text-paper">
-              {s.estimateValue} {s.estimateUnit}
-            </span>
-          </p>
-        ) : (
-          <button
-            type="button"
-            onClick={() => setRevealed(true)}
-            className="inline-flex items-center gap-1.5 border-b border-gold-bright pb-0.5 text-start font-display text-[0.875rem] font-semibold text-paper transition-colors duration-300 hover:text-gold-bright"
-          >
-            {s.estimateReveal}
-            <span aria-hidden className="text-gold-bright">
-              ↓
-            </span>
-          </button>
-        )}
-      </div>
+      <h2 className="annot-sm ink-in text-gold-bright" style={{ "--d": "160ms" } as React.CSSProperties}>
+        {s.title}
+      </h2>
 
       <dl className={`mt-4 grid grid-cols-2 border-t ${plateRule}`}>
         {s.rows.map((row, i) => (
@@ -127,24 +106,22 @@ function AreaTable({ copy }: { copy: Copy }) {
         ))}
       </dl>
 
-      {/* Derived figures: arithmetic on the stated numbers, labelled as
-          arithmetic. */}
-      <p
-        className={`ink-in mt-3 text-[0.8125rem] leading-snug ${plateSoft}`}
-        style={{ "--d": "520ms" } as React.CSSProperties}
+      {/* The estimate, given the prominence the derived arithmetic used to
+          take up: still flagged as an estimate, and its qualifying sentence
+          stays on the sheet rather than behind a click. */}
+      <div
+        className="ink-in mt-4 border-t pt-3"
+        style={{ "--d": "520ms", borderColor: "color-mix(in srgb, var(--color-gold-bright) 45%, transparent)" } as React.CSSProperties}
       >
-        <span className="annot-sm me-2">{s.derivedTitle}</span>
-        {s.derived.map((d, i) => (
-          <span key={d.label}>
-            {i > 0 && " · "}
-            <span className="font-semibold text-paper tabular-nums">{d.value}</span> {d.label}
+        <p className="annot-sm text-gold-bright">{s.estimateFlag}</p>
+        <p className="mt-1.5 flex flex-wrap items-baseline gap-x-2.5">
+          <span className="figure-xl text-[clamp(2.4rem,4.2vw,3.1rem)] text-gold-bright">
+            {s.estimateValue}
           </span>
-        ))}
-      </p>
-
-      {revealed && (
+          <span className={`annot-sm ${plateSoft}`}>{s.estimateUnit}</span>
+        </p>
         <p className={`mt-2 text-[0.8125rem] leading-snug ${plateSoft}`}>{s.estimateBody}</p>
-      )}
+      </div>
     </div>
   );
 }

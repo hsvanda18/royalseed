@@ -46,13 +46,7 @@ export const es: Copy = {
       { label: "Densidad de plantación", value: "231.000", unit: "plantas" },
       { label: "Mano de obra en la cosecha", value: "710", unit: "personas" },
     ],
-    derivedTitle: "Valores derivados",
-    derived: [
-      { label: "Plantas por hectárea", value: "462" },
-      { label: "Superficie por planta", value: "21,6 m²" },
-    ],
     estimateFlag: "Estimación",
-    estimateReveal: "Ver la producción estimada",
     estimateValue: "23.000",
     estimateUnit: "toneladas",
     estimateBody:

@@ -46,13 +46,7 @@ export const fr: Copy = {
       { label: "Densité de plantation", value: "231 000", unit: "plants" },
       { label: "Main-d’œuvre à la récolte", value: "710", unit: "personnes" },
     ],
-    derivedTitle: "Valeurs dérivées",
-    derived: [
-      { label: "Plants par hectare", value: "462" },
-      { label: "Surface par plant", value: "21,6 m²" },
-    ],
     estimateFlag: "Estimation",
-    estimateReveal: "Voir la production estimée",
     estimateValue: "23 000",
     estimateUnit: "tonnes",
     estimateBody:

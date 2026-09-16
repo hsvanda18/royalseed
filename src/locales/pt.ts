@@ -46,13 +46,7 @@ export const pt: Copy = {
       { label: "Densidade de plantação", value: "231.000", unit: "plantas" },
       { label: "Força de trabalho na colheita", value: "710", unit: "colaboradores" },
     ],
-    derivedTitle: "Valores derivados",
-    derived: [
-      { label: "Plantas por hectare", value: "462" },
-      { label: "Área por planta", value: "21,6 m²" },
-    ],
     estimateFlag: "Estimativa",
-    estimateReveal: "Ver a produção estimada",
     estimateValue: "23.000",
     estimateUnit: "toneladas",
     estimateBody:
