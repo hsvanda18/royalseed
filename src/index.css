@@ -234,6 +234,19 @@
     font-variant-numeric: tabular-nums;
   }
 
+  /* The header's own wayfinding: the same drafting-hand lettering as
+     .annot-sm, but sized for a primary navigation role rather than a
+     caption — it carries the reader's own path through the sheet. */
+  .nav-annot {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    line-height: 1.3;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+
   /* Figures are the argument: specimen scale, nothing between them and the
      lettering that explains them. */
   .figure-xl {
@@ -254,13 +267,15 @@
   /* Tracking breaks Arabic joining and crowds Han characters; the tight
      display leading clips both scripts' taller forms. */
   :lang(ar) .annot,
-  :lang(ar) .annot-sm {
+  :lang(ar) .annot-sm,
+  :lang(ar) .nav-annot {
     letter-spacing: 0;
     font-size: 0.8125rem;
   }
 
   :lang(zh) .annot,
-  :lang(zh) .annot-sm {
+  :lang(zh) .annot-sm,
+  :lang(zh) .nav-annot {
     letter-spacing: 0.08em;
     font-size: 0.75rem;
   }

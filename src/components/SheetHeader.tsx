@@ -78,7 +78,7 @@ export function SheetHeader({
                   <a
                     href={`#${id}`}
                     aria-current={isActive ? "location" : undefined}
-                    className="annot-sm group relative flex items-center gap-2 px-3 py-2 text-ink-soft transition-colors duration-300 hover:text-ink"
+                    className="nav-annot group relative flex items-center gap-2 px-3 py-2 text-ink-soft transition-colors duration-300 hover:text-ink"
                   >
                     <span
                       aria-hidden
@@ -151,7 +151,7 @@ export function SheetHeader({
                   onClick={() => setOpen(false)}
                   aria-current={active === id ? "location" : undefined}
                   className={[
-                    "annot-sm flex items-center gap-3 py-3.5",
+                    "nav-annot flex items-center gap-3 py-3.5",
                     isAction ? "text-gold-ink" : "text-ink-soft",
                   ].join(" ")}
                 >
