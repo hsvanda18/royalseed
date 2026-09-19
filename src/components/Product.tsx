@@ -43,7 +43,7 @@ export function Product({ copy }: { copy: Copy }) {
             style={{ "--d": "180ms" } as React.CSSProperties}
           >
             <h3 className="annot text-ink-faint">{p.why}</h3>
-            <p className="prose-sheet mt-3 max-w-[44rem]">{p.whyBody}</p>
+            <p className="callout mt-3 max-w-[44rem]">{p.whyBody}</p>
           </div>
 
           {/* Values — a legend key: symbol, entry, gloss. */}

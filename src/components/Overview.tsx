@@ -24,7 +24,7 @@ export function Overview({ copy }: { copy: Copy }) {
       {/* Below lg the three stack (card, photograph, schedule). From lg the
           photograph fills the frame and the card and schedule sit on its
           bottom edge side by side, at one height. */}
-      <div className="relative mx-auto flex max-w-[var(--sheet-max)] flex-col border border-[var(--rule-strong)] lg:grid lg:h-[calc(100svh-7rem)] lg:min-h-[max(34rem,56.25vw)] lg:grid-cols-[minmax(0,1fr)_minmax(0,31rem)] lg:content-end lg:items-stretch lg:gap-6 lg:p-8">
+      <div className="relative mx-auto flex max-w-[var(--sheet-max)] flex-col border border-[var(--rule-strong)] lg:grid lg:h-[calc(100svh-10rem)] lg:min-h-[max(34rem,56.25vw)] lg:grid-cols-[minmax(0,1fr)_minmax(0,31rem)] lg:content-end lg:items-stretch lg:gap-6 lg:p-8">
         <CornerMarks />
 
         <img

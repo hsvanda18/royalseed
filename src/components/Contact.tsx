@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CONTACT, FACTS, type Copy } from "../content";
+import { CONTACT, type Copy } from "../content";
 import { useInk } from "../lib/hooks";
 
 const cellBorder = "border-[color-mix(in_srgb,var(--color-paper)_20%,transparent)]";
@@ -84,19 +84,16 @@ export function Contact({ copy }: { copy: Copy }) {
 
             {/* Reserved, not linked: these accounts do not exist yet. */}
             <Cell label={c.socialLabel} className="sm:col-span-2">
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                <ul className="flex flex-wrap gap-1.5">
-                  {CONTACT.socialPlanned.map((name) => (
-                    <li
-                      key={name}
-                      className={`annot-sm border border-dashed px-2 py-1 ${cellBorder} ${softText}`}
-                    >
-                      {name}
-                    </li>
-                  ))}
-                </ul>
-                <p className={`annot-sm ${softText}`}>{c.socialNote}</p>
-              </div>
+              <ul className="flex flex-wrap gap-1.5">
+                {CONTACT.socialPlanned.map((name) => (
+                  <li
+                    key={name}
+                    className={`annot-sm border border-dashed px-2 py-1 ${cellBorder} ${softText}`}
+                  >
+                    {name}
+                  </li>
+                ))}
+              </ul>
             </Cell>
           </div>
 
@@ -243,7 +240,7 @@ export function Colophon({ copy }: { copy: Copy }) {
   const col = copy.colophon;
   return (
     <footer className="on-plate relative z-10 border-t border-[color-mix(in_srgb,var(--color-paper)_20%,transparent)] bg-plate text-paper">
-      <div className="mx-auto grid max-w-[var(--sheet-max)] items-center gap-x-10 gap-y-4 px-5 py-5 sm:px-8 md:grid-cols-[auto_minmax(0,1fr)_auto]">
+      <div className="mx-auto flex max-w-[var(--sheet-max)] flex-col items-start gap-4 px-5 py-5 sm:px-8 sm:flex-row sm:items-center sm:justify-between">
         {/* The mark, reversed for the plate: a colour treatment of the
             supplied artwork, never a recreation of it. */}
         <div className="flex items-center gap-4">
@@ -259,18 +256,12 @@ export function Colophon({ copy }: { copy: Copy }) {
           <p className={`annot-sm ${softText}`}>
             {CONTACT.domain}
             <br />
-            {col.company} · {FACTS.founded}
+            {col.company}
           </p>
         </div>
 
-        {/* What is still missing is stated on the sheet, not hidden. */}
         <p className={`annot-sm ${softText}`}>
-          <span className="text-gold-bright">{col.pendingTitle}:</span> {col.pending.join(" · ")}
-        </p>
-
-        <p className={`annot-sm md:text-end ${softText}`}>
-          {col.sheetLine}
-          <br />© {new Date().getFullYear()} {col.company}. {col.rights}
+          © {new Date().getFullYear()} {col.company}. {col.rights}
         </p>
       </div>
     </footer>

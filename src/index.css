@@ -264,6 +264,17 @@
     color: var(--color-ink-soft);
   }
 
+  /* The sheet's own pull quote: the same weight wherever a section closes
+     on its own conviction rather than a fact — the why, the method's
+     purpose, the origin story, the people. One voice, four windows. */
+  .callout {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+    line-height: 1.45;
+    color: var(--color-ink);
+  }
+
   /* Tracking breaks Arabic joining and crowds Han characters; the tight
      display leading clips both scripts' taller forms. */
   :lang(ar) .annot,

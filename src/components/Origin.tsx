@@ -31,9 +31,7 @@ export function Origin({ copy }: { copy: Copy }) {
             className="ink-in mt-6 border-s border-[var(--rule-strong)] ps-5"
             style={{ "--d": "180ms" } as React.CSSProperties}
           >
-            <p className="font-display text-[clamp(1.1rem,1.7vw,1.35rem)] italic leading-[1.45] text-ink">
-              {o.quote}
-            </p>
+            <p className="callout">{o.quote}</p>
           </blockquote>
         </div>
 

@@ -47,7 +47,7 @@ export const en: Copy = {
       { label: "Harvest workforce", value: "710", unit: "people" },
     ],
     estimateFlag: "Estimate",
-    estimateValue: "23,000",
+    estimateValue: "15,000",
     estimateUnit: "tonnes",
     estimateBody:
       "Average production estimated for the 500 hectares of phase one at full production. No harvest has yet been taken.",
@@ -76,10 +76,23 @@ export const en: Copy = {
     },
     valuesTitle: "Values",
     values: [
-      { name: "Sustainability", gloss: "The soil and water at Lonhe have to serve whoever comes next." },
-      { name: "Innovation", gloss: "Fertigation, certified plant material, technical management." },
-      { name: "Quality", gloss: "The market we want does not accept average fruit." },
-      { name: "Integrity", gloss: "We state the phase we are in, not the one we would like to be in." },
+      {
+        name: "Sustainability",
+        gloss:
+          "Produce responsibly, preserving natural resources and contributing to the economic and social development of the communities.",
+      },
+      {
+        name: "Innovation",
+        gloss: "Adopt modern agricultural technologies and practices to increase productivity, efficiency and competitiveness.",
+      },
+      {
+        name: "Quality",
+        gloss: "Ensure high production standards, delivering quality avocados for the domestic and international markets.",
+      },
+      {
+        name: "Integrity",
+        gloss: "Act with ethics, transparency, responsibility and respect in all of the company's relationships and activities.",
+      },
     ],
   },
 
@@ -142,11 +155,9 @@ export const en: Copy = {
   people: {
     title: "Workforce",
     lede: "710 people at harvest.",
-    permanent: "Permanent",
-    seasonal: "Seasonal",
     harvest: "Total at harvest",
     body:
-      "350 people hold the block through the year. At harvest another 360 join them, nearly all from communities around Quibala. A plantation this size is, before anything else, an employer — which is why integrity sits in our list of values and not only in our introduction.",
+      "We believe people are the force that turns our vision into results; that is why we create employment, value local talent and invest in developing a qualified, responsible team committed to sustainable production.",
     keyPermanent: "Permanent employee",
     keySeasonal: "Seasonal employee",
     illustrations: [
@@ -159,13 +170,12 @@ export const en: Copy = {
 
   contact: {
     title: "Contact",
-    lede: "Buyers, institutions and partners: write to us. We answer.",
+    lede: "Buyers · Investors · Partners · Institutions · Suppliers · Customers · Other interested parties: write to us.",
     officeLabel: "Head office",
     siteLabel: "Project site",
     emailLabel: "Email",
     phoneLabel: "Telephone",
     socialLabel: "Social",
-    socialNote: "Accounts in preparation under the name Royalseed Agro. They do not exist yet.",
     form: {
       title: "Send a message",
       name: "Name",
@@ -181,11 +191,6 @@ export const en: Copy = {
 
   colophon: {
     company: "Royalseed Agro, Lda",
-    sheetLine: "Lonhe, Quibala, Cuanza Sul · Angola",
     rights: "All rights reserved.",
-    pendingTitle: "Material still outstanding",
-    pending: [
-      "Facebook, WhatsApp Business and Instagram accounts",
-    ],
   },
 };

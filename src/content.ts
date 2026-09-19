@@ -27,7 +27,7 @@ export const FACTS = {
   landBaseHa: 2120,
   phaseOneHa: 500,
   plants: 231000,
-  tonnesEstimate: 23000,
+  tonnesEstimate: 15000,
   workersPermanent: 350,
   workersSeasonal: 360,
   workersHarvest: 710,
@@ -35,7 +35,6 @@ export const FACTS = {
   plantsPerHa: 462,
   /** derived: 10 000 ÷ 462 */
   m2PerPlant: 21.6,
-  founded: "02.2025",
 } as const;
 
 export const CONTACT = {
@@ -151,8 +150,6 @@ export interface Copy {
   people: {
     title: string;
     lede: string;
-    permanent: string;
-    seasonal: string;
     harvest: string;
     body: string;
     keyPermanent: string;
@@ -169,7 +166,6 @@ export interface Copy {
     emailLabel: string;
     phoneLabel: string;
     socialLabel: string;
-    socialNote: string;
     form: {
       title: string;
       name: string;
@@ -185,10 +181,7 @@ export interface Copy {
 
   colophon: {
     company: string;
-    sheetLine: string;
     rights: string;
-    pendingTitle: string;
-    pending: string[];
   };
 }
 

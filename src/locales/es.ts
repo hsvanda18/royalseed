@@ -47,7 +47,7 @@ export const es: Copy = {
       { label: "Mano de obra en la cosecha", value: "710", unit: "personas" },
     ],
     estimateFlag: "Estimación",
-    estimateValue: "23.000",
+    estimateValue: "15.000",
     estimateUnit: "toneladas",
     estimateBody:
       "Producción media estimada para las 500 hectáreas de la primera fase en plena producción. Todavía no se ha realizado ninguna cosecha.",
@@ -76,10 +76,23 @@ export const es: Copy = {
     },
     valuesTitle: "Valores",
     values: [
-      { name: "Sostenibilidad", gloss: "El suelo y el agua de Lonhe tienen que servir a quienes vengan después." },
-      { name: "Innovación", gloss: "Fertirrigación, material vegetal certificado, gestión técnica." },
-      { name: "Calidad", gloss: "El mercado al que aspiramos no acepta fruta mediocre." },
-      { name: "Integridad", gloss: "Decimos la fase en la que estamos, no la que nos gustaría haber alcanzado." },
+      {
+        name: "Sostenibilidad",
+        gloss:
+          "Producir de forma responsable, preservando los recursos naturales y contribuyendo al desarrollo económico y social de las comunidades.",
+      },
+      {
+        name: "Innovación",
+        gloss: "Adoptar tecnologías y prácticas agrícolas modernas para aumentar la productividad, la eficiencia y la competitividad.",
+      },
+      {
+        name: "Calidad",
+        gloss: "Garantizar altos estándares de producción, asegurando aguacates de calidad para los mercados nacional e internacional.",
+      },
+      {
+        name: "Integridad",
+        gloss: "Actuar con ética, transparencia, responsabilidad y respeto en todas las relaciones y actividades de la empresa.",
+      },
     ],
   },
 
@@ -142,11 +155,9 @@ export const es: Copy = {
   people: {
     title: "Mano de obra",
     lede: "710 personas en la época de cosecha.",
-    permanent: "Fijos",
-    seasonal: "Temporeros",
     harvest: "Total en la cosecha",
     body:
-      "350 personas mantienen el bloque durante todo el año. En la cosecha se les unen otras 360, casi todas de las comunidades de Quibala. Una plantación de este tamaño es, ante todo, un empleador — y por eso la integridad está en nuestra lista de valores y no solo en nuestra presentación.",
+      "Creemos que las personas son la fuerza que transforma nuestra visión en resultados; por eso generamos empleo, valoramos el talento local e invertimos en el desarrollo de un equipo cualificado, responsable y comprometido con la producción sostenible.",
     keyPermanent: "Trabajador fijo",
     keySeasonal: "Trabajador temporero",
     illustrations: [
@@ -159,13 +170,12 @@ export const es: Copy = {
 
   contact: {
     title: "Contacto",
-    lede: "Compradores, instituciones y socios: escríbannos. Respondemos.",
+    lede: "Compradores · Inversores · Socios · Instituciones · Proveedores · Clientes · Otros interesados: escríbannos.",
     officeLabel: "Sede",
     siteLabel: "Proyecto",
     emailLabel: "Correo electrónico",
     phoneLabel: "Teléfono",
     socialLabel: "Redes sociales",
-    socialNote: "Cuentas en preparación con el nombre Royalseed Agro. Todavía no existen.",
     form: {
       title: "Enviar mensaje",
       name: "Nombre",
@@ -181,11 +191,6 @@ export const es: Copy = {
 
   colophon: {
     company: "Royalseed Agro, Lda",
-    sheetLine: "Lonhe, Quibala, Cuanza Sul · Angola",
     rights: "Todos los derechos reservados.",
-    pendingTitle: "Material pendiente",
-    pending: [
-      "Cuentas de Facebook, WhatsApp Business e Instagram",
-    ],
   },
 };

@@ -47,7 +47,7 @@ export const zh: Copy = {
       { label: "采收期劳动力", value: "710", unit: "人" },
     ],
     estimateFlag: "估算",
-    estimateValue: "23,000",
+    estimateValue: "15,000",
     estimateUnit: "吨",
     estimateBody:
       "一期 500 公顷全面投产后的估算平均产量。目前尚未进行任何采收。",
@@ -76,10 +76,10 @@ export const zh: Copy = {
     },
     valuesTitle: "价值观",
     values: [
-      { name: "可持续", gloss: "隆赫的土壤和水源必须能够造福后来者。" },
-      { name: "创新", gloss: "水肥一体化、认证种苗、专业技术管理。" },
-      { name: "品质", gloss: "我们瞄准的市场不接受平庸的果实。" },
-      { name: "诚信", gloss: "我们如实说明所处的阶段，而不是我们希望达到的阶段。" },
+      { name: "可持续", gloss: "以负责任的方式进行生产，保护自然资源，助力社区的经济与社会发展。" },
+      { name: "创新", gloss: "采用现代农业技术与规范，提升生产力、效率与竞争力。" },
+      { name: "品质", gloss: "确保高标准生产，为国内外市场提供优质牛油果。" },
+      { name: "诚信", gloss: "在公司的各项关系与经营活动中秉持道德、透明、责任与尊重。" },
     ],
   },
 
@@ -142,11 +142,9 @@ export const zh: Copy = {
   people: {
     title: "劳动力",
     lede: "采收季节共 710 人。",
-    permanent: "长期员工",
-    seasonal: "季节性员工",
     harvest: "采收期合计",
     body:
-      "350 人常年维护地块。采收季节另有 360 人加入，几乎全部来自基巴拉周边社区。如此规模的种植园首先是一个雇主——这正是诚信被列入我们价值观、而不仅仅写在介绍里的原因。",
+      "我们相信，人才是将愿景转化为成果的力量；因此，我们创造就业机会，重视本地人才，并致力于培养一支专业、负责、致力于可持续生产的团队。",
     keyPermanent: "长期员工",
     keySeasonal: "季节性员工",
     illustrations: [
@@ -159,13 +157,12 @@ export const zh: Copy = {
 
   contact: {
     title: "联系我们",
-    lede: "采购商、机构及合作伙伴：欢迎来信，我们必复。",
+    lede: "采购商 · 投资者 · 合作伙伴 · 机构 · 供应商 · 客户 · 其他相关方：欢迎来信。",
     officeLabel: "总部",
     siteLabel: "项目地点",
     emailLabel: "电子邮箱",
     phoneLabel: "电话",
     socialLabel: "社交媒体",
-    socialNote: "以 Royalseed Agro 名义开设的账号正在筹备中，尚未上线。",
     form: {
       title: "发送留言",
       name: "姓名",
@@ -181,11 +178,6 @@ export const zh: Copy = {
 
   colophon: {
     company: "Royalseed Agro, Lda",
-    sheetLine: "安哥拉 · 宽扎南省基巴拉隆赫",
     rights: "版权所有。",
-    pendingTitle: "待补充资料",
-    pending: [
-      "Facebook、WhatsApp Business 及 Instagram 账号",
-    ],
   },
 };

@@ -47,7 +47,7 @@ export const fr: Copy = {
       { label: "Main-d’œuvre à la récolte", value: "710", unit: "personnes" },
     ],
     estimateFlag: "Estimation",
-    estimateValue: "23 000",
+    estimateValue: "15 000",
     estimateUnit: "tonnes",
     estimateBody:
       "Production moyenne estimée pour les 500 hectares de la première phase en pleine production. Aucune récolte n’a encore été réalisée.",
@@ -76,10 +76,23 @@ export const fr: Copy = {
     },
     valuesTitle: "Valeurs",
     values: [
-      { name: "Durabilité", gloss: "Le sol et l’eau de Lonhe doivent servir ceux qui viendront après nous." },
-      { name: "Innovation", gloss: "Fertirrigation, matériel végétal certifié, gestion technique." },
-      { name: "Qualité", gloss: "Le marché que nous visons n’accepte pas un fruit moyen." },
-      { name: "Intégrité", gloss: "Nous disons la phase où nous en sommes, pas celle que nous voudrions avoir atteinte." },
+      {
+        name: "Durabilité",
+        gloss:
+          "Produire de manière responsable, en préservant les ressources naturelles et en contribuant au développement économique et social des communautés.",
+      },
+      {
+        name: "Innovation",
+        gloss: "Adopter des technologies et des pratiques agricoles modernes pour accroître la productivité, l’efficacité et la compétitivité.",
+      },
+      {
+        name: "Qualité",
+        gloss: "Garantir des normes de production élevées, en assurant des avocats de qualité pour les marchés national et international.",
+      },
+      {
+        name: "Intégrité",
+        gloss: "Agir avec éthique, transparence, responsabilité et respect dans toutes les relations et activités de l’entreprise.",
+      },
     ],
   },
 
@@ -142,11 +155,9 @@ export const fr: Copy = {
   people: {
     title: "Main-d’œuvre",
     lede: "710 personnes en période de récolte.",
-    permanent: "Permanents",
-    seasonal: "Saisonniers",
     harvest: "Total à la récolte",
     body:
-      "350 personnes entretiennent le bloc toute l’année. À la récolte, 360 autres les rejoignent, presque toutes issues des communautés de Quibala. Une plantation de cette taille est avant tout un employeur — c’est pourquoi l’intégrité figure dans nos valeurs, et pas seulement dans notre présentation.",
+      "Nous croyons que les personnes sont la force qui transforme notre vision en résultats ; c’est pourquoi nous créons des emplois, valorisons les talents locaux et investissons dans le développement d’une équipe qualifiée, responsable et engagée pour une production durable.",
     keyPermanent: "Employé permanent",
     keySeasonal: "Employé saisonnier",
     illustrations: [
@@ -159,13 +170,12 @@ export const fr: Copy = {
 
   contact: {
     title: "Contact",
-    lede: "Acheteurs, institutions et partenaires : écrivez-nous. Nous répondons.",
+    lede: "Acheteurs · Investisseurs · Partenaires · Institutions · Fournisseurs · Clients · Autres parties intéressées : écrivez-nous.",
     officeLabel: "Siège",
     siteLabel: "Projet",
     emailLabel: "E-mail",
     phoneLabel: "Téléphone",
     socialLabel: "Réseaux sociaux",
-    socialNote: "Comptes en préparation sous le nom Royalseed Agro. Ils n’existent pas encore.",
     form: {
       title: "Envoyer un message",
       name: "Nom",
@@ -181,11 +191,6 @@ export const fr: Copy = {
 
   colophon: {
     company: "Royalseed Agro, Lda",
-    sheetLine: "Lonhe, Quibala, Cuanza Sul · Angola",
     rights: "Tous droits réservés.",
-    pendingTitle: "Éléments manquants",
-    pending: [
-      "Comptes Facebook, WhatsApp Business et Instagram",
-    ],
   },
 };

@@ -29,7 +29,7 @@ export function Method({ copy }: { copy: Copy }) {
             {m.title}
           </h2>
           <p
-            className="ink-in border-s-2 border-ink ps-4 font-display text-[clamp(1.05rem,1.6vw,1.25rem)] leading-[1.4] text-ink"
+            className="callout ink-in border-s-2 border-ink ps-4"
             style={{ "--d": "100ms" } as React.CSSProperties}
           >
             {m.closing}

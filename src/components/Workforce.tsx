@@ -1,9 +1,6 @@
 import { FACTS, PHOTOS, type Copy } from "../content";
 import { useInk } from "../lib/hooks";
 
-/** Sum of width ÷ height across the illustration row. */
-const ROW_RATIO = PHOTOS.workforce.reduce((sum, p) => sum + p.width / p.height, 0);
-
 /** One sapling mark, drawn at the cell's origin. */
 const mark = (x: number, y: number) =>
   `M${x} ${y}v-9.5M${x} ${y - 6.5}l-3.2-3.2M${x} ${y - 6.5}l3.2-3.2`;
@@ -15,6 +12,30 @@ const mark = (x: number, y: number) =>
 export function Workforce({ copy }: { copy: Copy }) {
   const { ref, inkAttr } = useInk<HTMLElement>();
   const w = copy.people;
+
+  const columns = [
+    {
+      keyLabel: w.keyPermanent,
+      value: FACTS.workersPermanent,
+      tone: "ink" as const,
+      photo: PHOTOS.workforce[0],
+      alt: w.illustrations[0],
+    },
+    {
+      keyLabel: w.keySeasonal,
+      value: FACTS.workersSeasonal,
+      tone: "terra" as const,
+      photo: PHOTOS.workforce[1],
+      alt: w.illustrations[1],
+    },
+    {
+      keyLabel: w.harvest,
+      value: FACTS.workersHarvest,
+      tone: "ink" as const,
+      photo: PHOTOS.workforce[2],
+      alt: w.illustrations[2],
+    },
+  ];
 
   return (
     <section
@@ -39,106 +60,47 @@ export function Workforce({ copy }: { copy: Copy }) {
               {w.lede}
             </p>
           </div>
-          <p
-            className="prose-sheet ink-in"
-            style={{ "--d": "160ms" } as React.CSSProperties}
-          >
+          <p className="callout ink-in" style={{ "--d": "160ms" } as React.CSSProperties}>
             {w.body}
           </p>
         </div>
 
-        {/* Legend and totals. */}
-        <div className="mt-8 grid gap-x-10 gap-y-6 border-t border-[var(--rule-strong)] pt-6 sm:grid-cols-3">
-          <Total
-            label={w.permanent}
-            value={FACTS.workersPermanent}
-            tone="ink"
-            keyLabel={w.keyPermanent}
-            delay="0ms"
-          />
-          <Total
-            label={w.seasonal}
-            value={FACTS.workersSeasonal}
-            tone="terra"
-            keyLabel={w.keySeasonal}
-            delay="90ms"
-          />
-          <div
-            className="ink-in sm:text-end"
-            style={{ "--d": "180ms" } as React.CSSProperties}
-          >
-            <p className="annot-sm text-ink-faint">{w.harvest}</p>
-            <p className="figure-xl mt-2 text-[clamp(3rem,7vw,4.5rem)] text-ink">
-              {FACTS.workersHarvest}
-            </p>
-          </div>
+        {/* Each figure centred directly above its own photograph, the three
+            columns held to equal width so the numbers land at equal
+            intervals — the count and the work it describes, read together. */}
+        <div className="mt-8 grid grid-cols-1 gap-8 border-t border-[var(--rule-strong)] pt-6 sm:grid-cols-3 sm:gap-5">
+          {columns.map((col, i) => {
+            const color = col.tone === "terra" ? "var(--color-terra)" : "var(--color-ink)";
+            return (
+              <div
+                key={col.keyLabel}
+                className="ink-in flex flex-col items-center text-center"
+                style={{ "--d": `${i * 90}ms` } as React.CSSProperties}
+              >
+                <div className="flex items-center gap-2.5">
+                  <svg viewBox="0 0 14 17" className="h-4 w-3.5 shrink-0" aria-hidden>
+                    <path d={mark(7, 15)} stroke={color} strokeWidth="1.25" strokeLinecap="round" fill="none" />
+                  </svg>
+                  <p className="annot-sm text-ink-faint">{col.keyLabel}</p>
+                </div>
+                <p className="figure-xl mt-2 text-[clamp(2.25rem,5vw,3.25rem)]" style={{ color }}>
+                  {col.value}
+                </p>
+                <img
+                  src={col.photo.src}
+                  width={col.photo.width}
+                  height={col.photo.height}
+                  alt={col.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="mt-4 block h-auto w-full border border-[var(--rule-strong)] bg-paper-deep"
+                />
+              </div>
+            );
+          })}
         </div>
-
-        {/* Generated illustrations, shown whole at one shared height and
-            labelled as illustrations: they are not photographs of the
-            company's own people or harvest. */}
-        <figure className="m-0 mt-8">
-          <div
-            className="grid gap-3 lg:flex lg:justify-center"
-            style={
-              {
-                "--row-h": `calc((min(var(--sheet-max), 100vw - 5rem) - 1.5rem) / ${ROW_RATIO.toFixed(4)})`,
-              } as React.CSSProperties
-            }
-          >
-            {PHOTOS.workforce.map((photo, i) => (
-              <img
-                key={photo.src}
-                src={photo.src}
-                width={photo.width}
-                height={photo.height}
-                alt={w.illustrations[i]}
-                loading="lazy"
-                decoding="async"
-                className="ink-in block h-auto w-full border border-[var(--rule-strong)] bg-paper-deep lg:w-[calc(var(--row-h)*var(--ratio))] lg:shrink-0"
-                style={{ "--ratio": photo.width / photo.height, "--d": `${120 + i * 90}ms` } as React.CSSProperties}
-              />
-            ))}
-          </div>
-          <figcaption className="annot-sm mt-2.5 text-ink-faint">{w.illustrationNote}</figcaption>
-        </figure>
+        <p className="annot-sm mt-2.5 text-center text-ink-faint">{w.illustrationNote}</p>
       </div>
     </section>
-  );
-}
-
-function Total({
-  label,
-  value,
-  tone,
-  keyLabel,
-  delay,
-}: {
-  label: string;
-  value: number;
-  tone: "ink" | "terra";
-  keyLabel: string;
-  delay: string;
-}) {
-  const color = tone === "terra" ? "var(--color-terra)" : "var(--color-ink)";
-  return (
-    <div className="ink-in" style={{ "--d": delay } as React.CSSProperties}>
-      <div className="flex items-center gap-2.5">
-        <svg viewBox="0 0 14 17" className="h-4 w-3.5 shrink-0" aria-hidden>
-          <path
-            d={mark(7, 15)}
-            stroke={color}
-            strokeWidth="1.25"
-            strokeLinecap="round"
-            fill="none"
-          />
-        </svg>
-        <p className="annot-sm text-ink-faint">{keyLabel}</p>
-      </div>
-      <p className="figure-xl mt-3 text-[clamp(2.25rem,5vw,3.25rem)]" style={{ color }}>
-        {value}
-      </p>
-      <p className="annot-sm mt-2 text-ink-soft">{label}</p>
-    </div>
   );
 }
