@@ -5,6 +5,10 @@ import { useInk } from "../lib/hooks";
 const mark = (x: number, y: number) =>
   `M${x} ${y}v-9.5M${x} ${y - 6.5}l-3.2-3.2M${x} ${y - 6.5}l3.2-3.2`;
 
+/** A shared crop for the three illustrations, close to each one's own
+ *  ratio so none is cropped hard, but fixed so the row reads level. */
+const ILLUSTRATION_RATIO = "12 / 5";
+
 /**
  * 710 people at harvest, held as three figures and the company's own
  * illustrations of the work.
@@ -93,7 +97,8 @@ export function Workforce({ copy }: { copy: Copy }) {
                   alt={col.alt}
                   loading="lazy"
                   decoding="async"
-                  className="mt-4 block h-auto w-full border border-[var(--rule-strong)] bg-paper-deep"
+                  className="mt-4 block w-full border border-[var(--rule-strong)] bg-paper-deep object-cover"
+                  style={{ aspectRatio: ILLUSTRATION_RATIO }}
                 />
               </div>
             );

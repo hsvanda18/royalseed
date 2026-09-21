@@ -50,7 +50,7 @@ export const pt: Copy = {
     estimateValue: "15.000",
     estimateUnit: "toneladas",
     estimateBody:
-      "Produção média estimada para os 500 hectares da primeira fase em plena produção. Nenhuma colheita foi ainda realizada.",
+      "Produção média estimada para os 500 hectares da primeira fase em plena produção.",
   },
 
   charter: {

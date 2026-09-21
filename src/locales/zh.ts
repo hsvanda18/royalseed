@@ -50,7 +50,7 @@ export const zh: Copy = {
     estimateValue: "15,000",
     estimateUnit: "吨",
     estimateBody:
-      "一期 500 公顷全面投产后的估算平均产量。目前尚未进行任何采收。",
+      "一期 500 公顷全面投产后的估算平均产量。",
   },
 
   charter: {
