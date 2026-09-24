@@ -14,12 +14,13 @@ import { ar } from "./locales/ar";
 import { en } from "./locales/en";
 import { es } from "./locales/es";
 import { fr } from "./locales/fr";
+import { it } from "./locales/it";
 import { pt } from "./locales/pt";
 import { zh } from "./locales/zh";
 
-export type Lang = "pt" | "en" | "fr" | "es" | "ar" | "zh";
+export type Lang = "pt" | "en" | "fr" | "es" | "it" | "ar" | "zh";
 
-export const LANGS: Lang[] = ["pt", "en", "fr", "es", "ar", "zh"];
+export const LANGS: Lang[] = ["pt", "en", "fr", "es", "it", "ar", "zh"];
 
 /* ── Facts. Language-independent. ───────────────────────────────────────── */
 
@@ -185,4 +186,4 @@ export interface Copy {
   };
 }
 
-export const COPY: Record<Lang, Copy> = { pt, en, fr, es, ar, zh };
+export const COPY: Record<Lang, Copy> = { pt, en, fr, es, it, ar, zh };
