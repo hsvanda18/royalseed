@@ -5,10 +5,11 @@ const plateSoft = "text-[color-mix(in_srgb,var(--color-paper)_66%,var(--color-pl
 const plateRule = "border-[color-mix(in_srgb,var(--color-paper)_20%,transparent)]";
 
 /**
- * The first screen: the orchard photograph fills it, the headline and the
- * schedule of areas sit on it. On large screens everything is held to the
- * viewport and the photograph gives up its sky first; on phones the three
- * stack.
+ * The first screen: the orchard photograph shown whole, at its own
+ * proportions — never cropped. On phones the card, photograph and schedule
+ * stack; from lg the card and schedule float on the photograph's own
+ * bottom edge instead, so the sheet is never taller than the picture
+ * itself requires.
  */
 export function Overview({ copy }: { copy: Copy }) {
   const { ref, inkAttr } = useInk<HTMLElement>("-5% 0px -20% 0px");
@@ -21,10 +22,11 @@ export function Overview({ copy }: { copy: Copy }) {
       {...inkAttr}
       className="relative z-10 px-4 pb-10 pt-[5.25rem] sm:px-6 sm:pt-[5.75rem] lg:px-8"
     >
-      {/* Below lg the three stack (card, photograph, schedule). From lg the
-          photograph fills the frame and the card and schedule sit on its
-          bottom edge side by side, at one height. */}
-      <div className="relative mx-auto flex max-w-[var(--sheet-max)] flex-col border border-[var(--rule-strong)] lg:grid lg:h-[calc(100svh-10rem)] lg:min-h-[max(34rem,56.25vw)] lg:grid-cols-[minmax(0,1fr)_minmax(0,31rem)] lg:content-end lg:items-stretch lg:gap-6 lg:p-8">
+      {/* Below lg the three stack (card, photograph, schedule), each in
+          normal flow. From lg the card and schedule leave the flow and
+          float over the photograph's own bottom-left and bottom-right
+          corners — the photograph's rendered size is what it is. */}
+      <div className="relative mx-auto flex max-w-[var(--sheet-max)] flex-col border border-[var(--rule-strong)]">
         <CornerMarks />
 
         <img
@@ -34,10 +36,11 @@ export function Overview({ copy }: { copy: Copy }) {
           alt={h.photo.alt}
           fetchPriority="high"
           decoding="async"
-          className="wash-in order-2 block aspect-[4/3] w-full object-cover object-[center_80%] sm:aspect-[16/9] lg:absolute lg:inset-0 lg:aspect-auto lg:h-full"
+          className="wash-in order-2 block w-full"
+          style={{ aspectRatio: `${PHOTOS.overview.width} / ${PHOTOS.overview.height}` }}
         />
 
-        <div className="relative order-1 flex flex-col justify-end bg-paper p-6 sm:p-9 lg:max-w-[36rem] lg:bg-paper/94 lg:p-9 lg:backdrop-blur-[2px]">
+        <div className="relative order-1 flex flex-col justify-end bg-paper p-6 sm:p-9 lg:absolute lg:bottom-8 lg:start-8 lg:order-none lg:w-[42%] lg:max-w-[36rem] lg:bg-paper/94 lg:p-9 lg:backdrop-blur-[2px]">
           <h1
             className="figure-xl ink-in text-[clamp(2.6rem,5vw,4.25rem)] text-ink"
             style={{ "--d": "120ms", textWrap: "balance" } as React.CSSProperties}
@@ -62,7 +65,7 @@ export function Overview({ copy }: { copy: Copy }) {
           </div>
         </div>
 
-        <div className="relative order-3 flex">
+        <div className="relative order-3 flex lg:absolute lg:bottom-8 lg:end-8 lg:order-none lg:w-[32%] lg:max-w-[28rem]">
           <AreaTable copy={copy} />
         </div>
       </div>

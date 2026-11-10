@@ -260,8 +260,20 @@ export function Colophon({ copy }: { copy: Copy }) {
           </p>
         </div>
 
-        <p className={`annot-sm ${softText}`}>
+        <p className={`annot-sm sm:text-end ${softText}`}>
           © {new Date().getFullYear()} {col.company}. {col.rights}
+          <br />
+          <span dir="ltr">
+            Created by{" "}
+            <a
+              href="https://www.instagram.com/hairtonvanda/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={link}
+            >
+              Hairton Vanda
+            </a>
+          </span>
         </p>
       </div>
     </footer>
